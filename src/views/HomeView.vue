@@ -104,11 +104,11 @@ const mixBlendProperties = ref([
 
 const effect = ref("overlay");
 
-const handleEffect = (route) => {
+const handleEffect = (route: string) => {
   effect.value = route;
 };
 
-const handleBgEffect = (value) => {
+const handleBgEffect = (value: string) => {
   
   mixBlendValue.value = value;
   console.log(mixBlendValue.value);
