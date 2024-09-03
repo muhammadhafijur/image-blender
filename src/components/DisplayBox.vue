@@ -235,10 +235,14 @@
       <div class="canvas-container relative">
         <canvas ref="myCanvas" class="w-[500px] hidden"></canvas>
         <button
+          :disabled="loading"
           @click="incrementDownloadCount"
-          class="mt-2 px-4 py-2 bg-slate-800 flex items-center gap-2 text-base font-inter justify-center w-full text-white rounded-md"
+          class="mt-2 px-4 py-2 bg-slate-800 disabled:bg-gray-200 disabled:text-gray-500 flex items-center gap-2 text-base font-inter justify-center w-full text-white rounded-md"
+          :class="{'cursor-not-allowed': loading}"
         >
+        <svg v-if="loading" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 animate-spin"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
           <svg
+            v-else
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="none"
@@ -255,7 +259,8 @@
             <path d="m17 22 3-3" />
             <circle cx="9" cy="9" r="2" />
           </svg>
-          Download Image
+          <span v-if="loading" class="flex items-center gap-2"> Downloading</span>
+          <span v-else>Download Image</span>
         </button>
       </div>
     </div>
@@ -282,7 +287,7 @@ const {
 } = useSupabase();
 
 
-const { myCanvas, drawImage, downloadImage } = useCanvasImageEditor();
+const { myCanvas, drawImage, downloadImage, loading } = useCanvasImageEditor();
 
 const {
   imageUrl,
