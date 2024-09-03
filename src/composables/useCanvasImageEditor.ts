@@ -49,11 +49,12 @@ const useImageCanvasEditor = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // DRAW THE IMAGE
-        ctx.globalAlpha = 1; 
+        ctx.globalAlpha = 1;
         ctx.globalCompositeOperation = "source-over";
         ctx.drawImage(image, 0, 0);
 
-        ctx.globalCompositeOperation = mixBlendValue.value as GlobalCompositeOperation;
+        ctx.globalCompositeOperation =
+          mixBlendValue.value as GlobalCompositeOperation;
 
         // IF GRADIENT IS CHOSEN
         if (selectedGradientDirection.value) {
@@ -107,8 +108,10 @@ const useImageCanvasEditor = () => {
           }
 
           if (gradient) {
-            if (fromGradient.value) gradient.addColorStop(0, fromGradient.value);
-            if (viaGradient.value) gradient.addColorStop(0.5, viaGradient.value);
+            if (fromGradient.value)
+              gradient.addColorStop(0, fromGradient.value);
+            if (viaGradient.value)
+              gradient.addColorStop(0.5, viaGradient.value);
             if (toGradient.value) gradient.addColorStop(1, toGradient.value);
 
             // GRADIENT FILL STYLE AND DRAW OVER THE IMAGE
@@ -123,17 +126,23 @@ const useImageCanvasEditor = () => {
           ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
-        resolve(); 
+        resolve();
       };
 
       image.onerror = () => {
         console.error("Failed to load image");
-        resolve(); 
+        resolve();
       };
     });
   }
 
   async function downloadImage() {
+    const canvas = myCanvas.value;
+
+    if (!canvas) {
+      console.error("Canvas is not available");
+      return;
+    }
 
     loading.value = true;
 
