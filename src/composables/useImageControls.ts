@@ -18,6 +18,10 @@ const viaGradient: Ref<string> = ref("#6366f1");
 const toGradient: Ref<string> = ref("#ef4444");
 const showGradientDropdown: Ref<boolean> = ref(false);
 
+const DARK_MODE_KEY = 'darkMode';
+const isDarkMode: Ref<boolean> = ref(false)
+
+
 const useImageControls = () => {
 
 
@@ -57,6 +61,7 @@ const useImageControls = () => {
   );
 
   return {
+    isDarkMode,
     imageUrl,
     aspectRatio,
     showPreview,
@@ -71,6 +76,7 @@ const useImageControls = () => {
     fromGradient,
     viaGradient,
     toGradient,
+    DARK_MODE_KEY
   };
 };
 

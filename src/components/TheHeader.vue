@@ -1,30 +1,32 @@
 <template>
-  <header class="bg-white border-b">
+  <header
+    class="bg-white dark:bg-custom-dark-400 border-b dark:border-gray-700"
+  >
     <div
       class="mx-auto flex max-w-screen-xl items-center gap-4 sm:gap-8 px-4 py-3.5 sm:px-6 lg:px-8"
     >
-      <a
-        href="#"
+      <router-link
+        to="/"
         class="text-[#1F2937] block tracking-wider font-madimi text-xl sm:text-2xl font-bold"
       >
         <span class="sr-only">Home</span>
         <span
-          class="bg-no-repeat bg-clip-text bg-top bg-[url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTdlb2kyd2NydGJlajd3aDN4NmxreGd5OWR6dGQzeHNoN25mcXlhayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l51a5wLWr6oRUOWnEr/giphy.webp')] text-transparent"
+          class="bg-no-repeat bg-clip-text bg-top dark:bg-right-bottom bg-[url('../images/wave.webp')] text-transparent"
           >Image</span
         >
         <span
           class="bg-gradient-to-r from-blue-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text text-transparent"
           >Blender</span
         >
-      </a>
+      </router-link>
 
       <div class="flex flex-1 items-center justify-end">
         <div class="flex items-center gap-4">
           <a
-            href="#"
+            href="https://www.github.com/muhammadhafijur/"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-8 h-8 sm:h-10 sm:w-10 grid place-items-center bg-gray-200 rounded-md"
+            class="w-8 h-8 sm:h-10 sm:w-10 grid place-items-center bg-gray-200 dark:bg-gray-100 rounded-md"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -41,9 +43,32 @@
               <path d="M9 18c-4.51 2-5-2-7-2"></path></svg
             ><span class="sr-only">GitHub</span></a
           ><button
-            class="w-8 h-8 sm:h-10 sm:w-10 grid place-items-center bg-gray-200 rounded-md"
+            @click="toggleDarkMode"
+            class="w-8 h-8 sm:h-10 sm:w-10 grid place-items-center bg-gray-200 dark:bg-gray-100 rounded-md"
           >
             <svg
+              v-if="isDarkMode"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-4 sm:size-5"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+            <svg
+              v-else
               viewBox="0 0 15 15"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +79,9 @@
                 fill="currentColor"
                 fill-rule="evenodd"
                 clip-rule="evenodd"
-              ></path></svg
-            ><span class="sr-only">Toggle dark mode</span>
+              ></path>
+            </svg>
+            <span class="sr-only">Toggle dark mode</span>
           </button>
           <button
             v-if="!session"
@@ -132,7 +158,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Session } from '@supabase/supabase-js';
+import useImageControls from "@/composables/useImageControls";
+import type { Session } from "@supabase/supabase-js";
 import { onMounted, ref } from "vue";
 import useSupabase from "../composables/useSupabase";
 import supabase from "../lib/supabaseClient";
@@ -140,6 +167,12 @@ import supabase from "../lib/supabaseClient";
 const showProfileDropdown = ref(false);
 
 const { session, signInWithGoogle, signOut } = useSupabase();
+const { isDarkMode, DARK_MODE_KEY } = useImageControls();
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value;
+  localStorage.setItem(DARK_MODE_KEY, isDarkMode.value.toString());
+};
 
 onMounted(async () => {
   try {
@@ -147,7 +180,7 @@ onMounted(async () => {
     if (error) {
       console.error("Error getting session:", error.message);
     } else {
-      session.value = data.session as Session | null;;
+      session.value = data.session as Session | null;
       if (session.value && session.value.user) {
         console.log("Logged in as user");
       }

@@ -1,12 +1,12 @@
 <template>
   <div
-    class="w-full bg-white/80 backdrop-blur-lg font-inter transition-colors duration-200 sticky top-0 z-10 shadow-[0_1px_3px_rgba(15,23,42,0.08)]"
+    class="w-full bg-white/80 dark:bg-custom-dark-400/[98%] backdrop-blur-lg font-inter transition-colors duration-200 sticky top-0 z-10 shadow-[0_1px_3px_rgba(15,23,42,0.08)]"
   >
     <div
       class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 flex items-center gap-4"
     >
       <button
-        class="cursor-pointer shrink-0 text-slate-400 rounded-full grid place-items-center"
+        class="cursor-pointer shrink-0 text-slate-400 dark:text-gray-100 rounded-full grid place-items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@
       <input
         id="imageUrl"
         type="text"
-        class="caret-emerald-500 w-full focus:outline-none py-6 text-base bg-transparent font-normal text-slate-700"
+        class="caret-emerald-500 w-full focus:outline-none py-6 text-base bg-transparent font-normal text-slate-700 dark:text-gray-100"
         v-model="imageUrl"
       />
       <button
@@ -88,11 +88,13 @@
         @change="handleImageFileChange"
       />
     </div>
-  </div>
-  <div class="max-w-screen-xl mx-auto w-full">
-    <div
-      class="h-px w-full max-w-xs bg-gradient-to-r from-transparent via-emerald-200 to-transparent"
-    ></div>
+    <div class="dark:bg-custom-dark-400">
+      <div class="max-w-screen-xl mx-auto w-full">
+        <div
+          class="h-px w-full max-w-xs bg-gradient-to-r from-transparent via-emerald-500 dark:via-indigo-400 to-transparent"
+        ></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -103,15 +105,20 @@ const { imageUrl } = useImageControls();
 
 // Handle file input changes
 const handleImageFileChange = (event: Event) => {
+  imageUrl.value = "";
   const target = event.target as HTMLInputElement;
   const file = target.files?.[0];
-  if (file) {
-    if (imageUrl.value) {
-      URL.revokeObjectURL(imageUrl.value);
-    }
 
+  if (imageUrl.value) {
+    URL.revokeObjectURL(imageUrl.value);
+    imageUrl.value = "";
+  }
+
+  if (file) {
     imageUrl.value = URL.createObjectURL(file);
   }
+
+  target.value = "";
 };
 
 const randomImageLinks = [
@@ -124,6 +131,11 @@ const randomImageLinks = [
 
 let imageIndex = 0;
 const chooseRandomImage = () => {
+  if (imageUrl.value) {
+    URL.revokeObjectURL(imageUrl.value);
+    imageUrl.value = "";
+  }
+
   const nextImage = randomImageLinks[imageIndex];
   imageUrl.value = nextImage;
   imageIndex = (imageIndex + 1) % randomImageLinks.length;

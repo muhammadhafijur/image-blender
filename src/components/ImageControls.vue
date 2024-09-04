@@ -2,9 +2,9 @@
   <div class="">
     <div class="w-full grid grid-cols-2 lg:grid-cols-3 gap-2">
       <button
-        class="capitalize text-sm font-medium border rounded-md p-2 text-gray-700"
+        class="capitalize text-sm font-medium border dark:border-gray-400 rounded-md p-2 text-gray-700 dark:text-gray-200"
         :class="[
-          mixBlendValue === item ? 'bg-green-500 text-white' : 'bg-white',
+          mixBlendValue === item ? 'bg-green-500 dark:bg-indigo-500 border-green-500 dark:border-indigo-500 text-white' : 'bg-white dark:bg-custom-dark-400',
         ]"
         v-for="item in mixBlendProperties"
         :key="item"
@@ -22,7 +22,7 @@
             "
             type="text"
             placeholder="#FFFFFF"
-            class="border p-2 rounded-md w-full"
+            class="border dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 p-2 rounded-md w-full"
             v-model="bgLayerColor"
           />
           <label
@@ -167,7 +167,7 @@
               v-model="selectedGradientDirection"
               type="text"
               id="Gradient"
-              class="w-full rounded-lg py-3 border px-2 border-gray-300 pe-10 text-gray-700 sm:text-sm [&::-webkit-calendar-picker-indicator]:opacity-0"
+              class="w-full rounded-lg py-3 border px-2 border-gray-300 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 pe-10  sm:text-sm [&::-webkit-calendar-picker-indicator]:opacity-0"
               placeholder="Please select"
             />
 
@@ -204,7 +204,7 @@
         </div>
         <div class="mt-4 grid grid-cols-3 gap-3">
           <div class="">
-            <label for="from-gd" class="text-sm font-medium text-slate-900"
+            <label for="from-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
               >From</label
             >
             <div class="mt-1 flex gap-1">
@@ -212,7 +212,7 @@
                 id="from-gd"
                 type="text"
                 placeholder="#FFFFFF"
-                class="border p-2 rounded-md w-full"
+                class="border p-2 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 rounded-md w-full"
                 v-model="fromGradient"
               />
               <label
@@ -267,7 +267,7 @@
             </div>
           </div>
           <div class="">
-            <label for="via-gd" class="text-sm font-medium text-slate-900"
+            <label for="via-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
               >Via</label
             >
             <div class="mt-1 flex gap-1">
@@ -275,7 +275,7 @@
                 id="via-gd"
                 type="text"
                 placeholder="#FFFFFF"
-                class="border p-2 rounded-md w-full"
+                class="border p-2 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 rounded-md w-full"
                 v-model="viaGradient"
               />
               <label
@@ -330,7 +330,7 @@
             </div>
           </div>
           <div class="">
-            <label for="to-gd" class="text-sm font-medium text-slate-900"
+            <label for="to-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
               >To</label
             >
             <div class="mt-1 flex gap-1">
@@ -338,7 +338,7 @@
                 id="to-gd"
                 type="text"
                 placeholder="#FFFFFF"
-                class="border p-2 rounded-md w-full"
+                class="border p-2 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 rounded-md w-full"
                 v-model="toGradient"
               />
               <label

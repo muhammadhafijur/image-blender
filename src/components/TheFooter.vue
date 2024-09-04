@@ -1,10 +1,10 @@
 <template>
   <!-- #F6F6F9 -->
-  <footer class="mt-32 w-full bg-white dark:bg-gray-900 font-inter">
+  <footer class="pt-32 w-full bg-white dark:bg-custom-dark-400 font-inter">
     <div
       class="relative max-w-screen-xl px-4 sm:px-6 md:px-8 mx-auto text-emerald-500 flex gap-2 sm:gap-3 md:gap-4 items-center"
     >
-      <svg
+      <!-- <svg
         xmlns="http://www.w3.org/2000/svg"
         class="size-6 bike-animation"
         viewBox="0 0 24 24"
@@ -23,7 +23,7 @@
             d="M20.235 7.87c1.281 1.559 1.727 3.042 1.764 3.826a5.3 5.3 0 0 0-2.217-.479c-2.445 0-4.64 1.626-5.164 3.792c-.126.518-.188.777-.324.884s-.356.107-.795.107h-2.878c-.443 0-.664 0-.8-.108c-.137-.11-.197-.367-.316-.883c-.496-2.138-2.508-3.997-4.603-3.84c-.211.017-.317.025-.39.008c-.071-.016-.144-.057-.29-.14c-.421-.237-.851-.463-1.264-.714A2 2 0 0 1 2 8.683c-.013-.384.207-.764.652-.66l6.42 1.511c.483.114.724.17.931.132s.462-.212.97-.56c1.288-.88 3.33-1.713 5.365-.978c.557.201.836.302.994.307c.16.005.392-.063.857-.198a9.5 9.5 0 0 1 2.045-.367m0 0c-.802-.978-1.934-1.985-3.5-2.87"
           />
         </g>
-      </svg>
+      </svg> -->
 
       <div
         class="h-px w-full line-animation max-w-full bg-gradient-to-r from-transparent via-emerald-400 to-emerald-500 rounded-full"
@@ -63,9 +63,9 @@
         </p>
         <div class="flex space-x-4">
           <a
-            href="https://6amtech.comhttps://github.com/muhammadhafijur"
+            href="https://github.com/muhammadhafijur"
             target="_blank"
-            class="text-gray-600 transition duration-300 ease-out hover:scale-110 hover:text-slate-800"
+            class="text-gray-600 dark:text-gray-200 transition duration-300 ease-out hover:scale-110 hover:text-slate-800"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -117,9 +117,7 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-.bike-animation {
-  animation: bikeMove 15s ease-in-out forwards;
-}
+
 
 .line-animation {
   animation: lineMove 15s ease-out forwards;
@@ -144,15 +142,6 @@
   }
   100% {
     transform: translateX(0) rotate(45deg);
-  }
-}
-
-@keyframes bikeMove {
-  0% {
-    transform: translateX(-100vw) translateY(-16px) rotate(0deg);
-  }
-  100% {
-    transform: translateX(50vw) translateY(-16px) rotate(-35deg);
   }
 }
 </style>

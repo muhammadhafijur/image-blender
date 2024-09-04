@@ -2,11 +2,11 @@
   <div class="">
     <div class="flex flex-col md:flex-row gap-4 md:gap-3">
       <div
-        class="p-1 bg-slate-200/60 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] rounded-lg grid grid-cols-2 justify-center grow"
+        class="p-1 bg-slate-200/60 dark:bg-gray-100 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] rounded-lg grid grid-cols-2 justify-center grow"
       >
         <button
           @click="toggleViewMode('preview')"
-          :class="{ 'bg-white shadow text-slate-800': showPreview }"
+          :class="{ 'bg-white dark:bg-custom-dark-400 shadow text-slate-800 dark:text-gray-100': showPreview }"
           class="px-3 group py-1.5 rounded-md text-slate-500 text-sm font-semibold justify-center grow flex items-center gap-2"
         >
           <svg
@@ -29,7 +29,7 @@
         </button>
         <button
           @click="toggleViewMode('code')"
-          :class="{ 'bg-white shadow text-slate-800': !showPreview }"
+          :class="{ 'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': !showPreview }"
           class="text-slate-500 justify-center px-3 py-1.5 text-sm font-semibold rounded-md flex items-center gap-2"
         >
           <svg
@@ -52,7 +52,7 @@
       </div>
       <button
         @click="copyCode"
-        class="shadow active:translate-y-px duration-200 text-sm font-semibold transition ease-out bg-white group text-slate-700 justify-center px-3 py-1 rounded-md flex items-center gap-2 relative"
+        class="shadow active:translate-y-px duration-200 text-sm font-semibold transition ease-out bg-white dark:bg-zinc-800 dark:text-emerald-500 group text-slate-700 justify-center px-3 py-1 rounded-md flex items-center gap-2 relative"
       >
         <div
           v-if="showCopyTooltip"
@@ -65,7 +65,7 @@
         </div>
 
         <svg
-          class="h-8 w-8 stroke-slate-700 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-800"
+          class="h-8 w-8 stroke-slate-700 dark:stroke-emerald-400 dark:group-hover:stroke-emerald-500 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-800"
           fill="none"
           viewBox="0 0 32 32"
           xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@
         <button
           @click="handleAspectRatio('square')"
           :class="{
-            'bg-white shadow text-slate-800': aspectRatio === 'square',
+            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': aspectRatio === 'square',
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -153,7 +153,7 @@
         <button
           @click="handleAspectRatio('video')"
           :class="{
-            'bg-white shadow text-slate-800': aspectRatio === 'video',
+            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': aspectRatio === 'video',
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -174,7 +174,7 @@
         <button
           @click="handleAspectRatio('auto')"
           :class="{
-            'bg-white shadow text-slate-800': aspectRatio === 'auto',
+            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': aspectRatio === 'auto',
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -237,7 +237,7 @@
         <button
           :disabled="loading"
           @click="incrementDownloadCount"
-          class="mt-2 px-4 py-2 bg-slate-800 disabled:bg-gray-200 disabled:text-gray-500 flex items-center gap-2 text-base font-inter justify-center w-full text-white rounded-md"
+          class="mt-2 px-4 py-2 bg-slate-800 dark:bg-indigo-500 disabled:bg-gray-200 disabled:text-gray-500 flex items-center gap-2 text-base font-inter justify-center w-full text-white rounded-md"
           :class="{'cursor-not-allowed': loading}"
         >
         <svg v-if="loading" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 animate-spin"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
