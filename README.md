@@ -1,4 +1,4 @@
-![Thumbnail](![Thumbnail](src/images/image-blender.png))
+![Thumbnail](src/images/image-blender.gif)
 
 # Image Blender
 
