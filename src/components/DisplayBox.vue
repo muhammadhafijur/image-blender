@@ -262,6 +262,12 @@
           <span v-if="loading" class="flex items-center gap-2"> Downloading</span>
           <span v-else>Download Image</span>
         </button>
+        
+        <div v-if="isExternalImageSource"  class="mt-6 flex items-start border p-4 bg-yellow-50 border-yellow-500 rounded-lg gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-yellow-500"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p class="text-sm md:text-base text-yellow-600">Unfortunately, images from external links cannot be downloaded due to security restrictions. To customize and download your image, please upload the image directly from your device.</p>
+          <button @click="isExternalImageSource = false" class="w-8 h-8 shrink-0 rounded-md bg-gray-200 grid place-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+        </div>
       </div>
     </div>
   </div>
@@ -272,7 +278,7 @@ import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
 import "prismjs/themes/prism-tomorrow.css";
-import { nextTick, onMounted, ref } from "vue";
+import { nextTick, onMounted, ref, watch } from "vue";
 import useSupabase from "../composables/useSupabase";
 
 import useCanvasImageEditor from "../composables/useCanvasImageEditor";
@@ -284,6 +290,7 @@ const {
   signInWithGoogle,
   signOut,
   incrementDownloadCount,
+  isExternalImageSource
 } = useSupabase();
 
 
@@ -352,6 +359,18 @@ const copyCode = () => {
       console.error("Failed to copy:", err);
     });
 };
+
+
+
+watch(isExternalImageSource, () => {
+  if(isExternalImageSource.value){
+  setTimeout(() => {
+    isExternalImageSource.value = false
+  }, 8000)
+}
+})
+
+
 
 onMounted(() => {
   Prism.highlightAll();

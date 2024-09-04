@@ -1,11 +1,14 @@
-import type { Session } from '@supabase/supabase-js';
-import { ref } from "vue";
+import type { Session } from "@supabase/supabase-js";
+import { ref, type Ref } from "vue";
 import supabase from "../lib/supabaseClient";
 import useImageCanvasEditor from "./useCanvasImageEditor";
+import useImageControls from "./useImageControls";
 
 const { myCanvas, downloadImage } = useImageCanvasEditor();
+const { imageUrl } = useImageControls();
 
-const session = ref<Session | null>(null)
+const session = ref<Session | null>(null);
+const isExternalImageSource: Ref<boolean> = ref(false);
 
 const useSupabase = () => {
   const downloadCount = ref(0);
@@ -28,6 +31,11 @@ const useSupabase = () => {
   };
 
   const incrementDownloadCount = async () => {
+    if (imageUrl.value && imageUrl.value.startsWith("http")) {
+      isExternalImageSource.value = true
+      return;
+    }
+
     downloadImage();
 
     // INCREMENT COUNT
@@ -78,7 +86,7 @@ const useSupabase = () => {
     if (error) {
       console.error("Error signing out:", error.message);
     } else {
-      session.value = null; 
+      session.value = null;
       console.log("Signed out successfully");
     }
   };
@@ -90,6 +98,7 @@ const useSupabase = () => {
     signOut,
     fetchDownloadCount,
     incrementDownloadCount,
+    isExternalImageSource,
   };
 };
 
