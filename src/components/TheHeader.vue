@@ -23,7 +23,7 @@
       <div class="flex flex-1 items-center justify-end">
         <div class="flex items-center gap-4">
           <a
-            href="https://www.github.com/muhammadhafijur/"
+            href="https://github.com/muhammadhafijur/image-blender"
             target="_blank"
             rel="noopener noreferrer"
             class="w-8 h-8 sm:h-10 sm:w-10 grid place-items-center bg-gray-200 dark:bg-gray-100 rounded-md"
