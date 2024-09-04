@@ -1,4 +1,4 @@
-![Thumbnail](https://github.com/muhammadhafijur/image-blender/blob/main/images/image-blender.webm)
+![Thumbnail](![Thumbnail](src/images/image-blender.png))
 
 # Image Blender
 
