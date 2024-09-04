@@ -1,48 +1,77 @@
-# vuejs-pinia-tailwindcss-boilerplate
+![Thumbnail](https://github.com/muhammadhafijur/image-blender/blob/main/images/image-blender.webm)
 
-This template should help get you started developing with Vue 3 in Vite.
+# Image Blender
 
-## Recommended IDE Setup
+[ImageBlender](https://imageblender.vercel.app/) is an open-source project for blending images. It allows users to upload or paste an image link, apply blend effects, copy the generated code, download image and so on.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+## Demo
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+[Live view](https://imageblender.vercel.app/) of the project.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## 📜 Features
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- **Paste or Upload Images:** Easily paste image links or upload your images directly into the application.
+- **Blend Effects:** Apply various blend modes, such as multiply, screen, overlay, and more
+- **Gradient Effects:** Customize your images further with gradient effects, allowing you to blend colors seamlessly.
+- **Unique Presets:** Choose from a variety of aesthetically pleasing presets for quick and beautiful styling.
+- **View and Copy Code:** Instantly view the generated tailwind CSS code for the applied effects and copy it to your clipboard with a single click.
+- **Download Modified Images:** Download your modified images with the applied effects directly from the app.
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Prerequisites
 
-```sh
+Before cloning this project, make sure you have the following tools installed:
+
+On your computer
+
+- [Git](https://git-scm.com/downloads)
+- [VS Code](https://code.visualstudio.com/download) (or an IDE of your choice)
+- [Pnpm](https://pnpm.io/)
+
+## Installation
+
+1. Clone the code by typing the following command:
+
+```bash
+git clone https://github.com/muhammadhafijur/image-blender
+```
+
+2. Navigate to the project directory and open the project
+
+```bash
+cd image-blender && code .
+```
+
+3. Install packages
+
+```bash
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+4. Compile and Hot-Reload for Development
 
-```sh
+```bash
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## 📝 Contributing
 
-```sh
-pnpm build
-```
+Contributions are welcome! Here's how to get started:
 
-### Lint with [ESLint](https://eslint.org/)
+1. **Report Issues:** Open an issue to report bugs or suggest new features.
+2. **Fork the Repository:** Fork this repository to your own GitHub account.
+3. **Submit a Pull Request:** Make your changes and submit a pull request with a brief description.
 
-```sh
-pnpm lint
-```
-# vuejs-pinia-tailwindcss-boilerplate
-# image-blender
+Thanks for helping improve this project!
+
+
+
+## 🍃 Contributors
+
+[//]: contributor-faces
+
+<a href="https://github.com/muhammadhafijur"><img src="https://avatars.githubusercontent.com/u/85216180?v=4" title="Julia Undeutsch" width="80" height="80"></a>
+
+[//]: contributor-faces
