@@ -80,14 +80,24 @@
         >.
       </p>
       <div
-        class="mt-4 sm:mt-6 grid grid-cols-2 gap-2 text-[8px] sm:text-xs font-medium"
+        class="mt-4 sm:mt-6 grid grid-cols-2 gap-2 md:gap-4 text-[8px] sm:text-xs font-medium"
       >
-        <button class="bg-slate-900 text-white p-1.5 sm:p-3 rounded-xl">
+        <a
+          href="https://github.com/muhammadhafijur/image-blender"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block text-center bg-slate-900 text-white p-1.5 sm:p-3 rounded-xl"
+        >
           GIVE A STAR
-        </button>
-        <button class="bg-gray-100 text-gray-900 p-1.5 sm:p-3 rounded-xl">
+        </a>
+        <a
+          href="https://github.com/muhammadhafijur/image-blender/issues/1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block text-center bg-gray-100 text-gray-900 p-1.5 sm:p-3 rounded-xl"
+        >
           LEAVE A REVIEW
-        </button>
+        </a>
       </div>
     </div>
   </div>

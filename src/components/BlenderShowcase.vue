@@ -1,14 +1,14 @@
 <template>
-  <section>
+  <section class="bg-white dark:bg-custom-dark-400">
     <div
-      class="mt-12 max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 text-center"
+      class="mt-12 max-w-screen-xl  mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 text-center"
     >
       <h2
         class="text-transparent bg-gradient-to-r from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text font-inter text-xl md:text-2xl lg:text-3xl font-extrabold"
       >
         Images Created with Image Blender
       </h2>
-      <p class="text-base md:text-lg mt-4 text-gray-500">
+      <p class="text-base md:text-lg mt-4 text-gray-500 dark:text-gray-300">
         Explore amazing images made with Image Blender
       </p>
     </div>
