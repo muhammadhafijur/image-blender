@@ -190,6 +190,7 @@
           </div>
 
           <div
+            ref="gradientDropdownTarget"
             v-if="showGradientDropdown"
             class="px-2 w-full bg-white shadow absolute top-20 py-1 z-10"
           >
@@ -430,6 +431,7 @@
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 import useImageControls from "../composables/useImageControls";
 
@@ -522,6 +524,12 @@ const gradientDirections = [
   "bg-gradient-to-l",
   "bg-gradient-to-tl",
 ];
+
+const gradientDropdownTarget = ref(null)
+
+onClickOutside(gradientDropdownTarget, () => {
+  showGradientDropdown.value = false
+})
 </script>
 
 <style scoped>

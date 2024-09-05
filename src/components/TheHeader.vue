@@ -131,6 +131,7 @@
             <!-- Dropdown Menu -->
             <div
               v-if="showProfileDropdown && session"
+                ref="dropdownTarget"
               class="absolute py-1 right-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20"
             >
               <button
@@ -160,6 +161,7 @@
 <script setup lang="ts">
 import useImageControls from "@/composables/useImageControls";
 import type { Session } from "@supabase/supabase-js";
+import { onClickOutside } from "@vueuse/core";
 import { onMounted, ref } from "vue";
 import useSupabase from "../composables/useSupabase";
 import supabase from "../lib/supabaseClient";
@@ -189,6 +191,13 @@ onMounted(async () => {
     console.error("An error occurred", error);
   }
 });
+
+
+const dropdownTarget = ref(null)
+
+onClickOutside(dropdownTarget, () => {
+  showProfileDropdown.value = false
+})
 </script>
 
 <style scoped></style>
