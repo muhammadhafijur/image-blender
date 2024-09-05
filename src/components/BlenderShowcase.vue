@@ -55,7 +55,7 @@
             class="w-full h-full lg:h-80 aspect-video rounded-md overflow-hidden"
           >
             <img
-              src="../images/showcase1.png"
+              src="../images/showcase2.jpg"
               class="w-full h-full object-cover"
               alt=""
             />
@@ -66,7 +66,7 @@
             class="w-full h-full lg:h-80 aspect-video rounded-md overflow-hidden"
           >
             <img
-              src="../images/showcase1.png"
+              src="../images/showcase3.jpg"
               class="w-full h-full object-cover"
               alt=""
             />
@@ -77,7 +77,7 @@
             class="w-full h-full lg:h-80 aspect-video rounded-md overflow-hidden"
           >
             <img
-              src="../images/showcase1.png"
+              src="../images/showcase4.jpg"
               class="w-full h-full object-cover"
               alt=""
             />
@@ -88,7 +88,18 @@
             class="w-full h-full lg:h-80 aspect-video rounded-md overflow-hidden"
           >
             <img
-              src="../images/showcase1.png"
+              src="../images/showcase5.jpg"
+              class="w-full h-full object-cover"
+              alt=""
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div
+            class="w-full h-full lg:h-80 aspect-video rounded-md overflow-hidden"
+          >
+            <img
+              src="../images/showcase6.jpg"
               class="w-full h-full object-cover"
               alt=""
             />

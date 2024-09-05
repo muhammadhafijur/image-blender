@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="uniquePresetTarget"
     class="fixed left-1/2 -translate-x-1/2 transition duration-500 origin-bottom ease-out bottom-10 z-10 w-full max-w-full h-full max-h-[300px] 2xl:max-h-[var(--uniquePresetBoxSize)] sm:max-w-screen-xl px-4 sm:px-6 md:px-8 font-inter"
     :class="[showUniquePreset ? 'scale-100 ' : 'scale-0']"
     :style="`--uniquePresetBoxSize:${uniquePresetBoxSize}px;`"
@@ -209,6 +210,7 @@
 <script setup lang="ts">
 import useImageControls from "@/composables/useImageControls";
 import useSupabase from "@/composables/useSupabase";
+import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
 const { session, signInWithGoogle } = useSupabase();
@@ -421,6 +423,10 @@ const uniquePresetBoxSize = ref(500);
 const handleUniquePresetBoxSize = (size: number) => {
   uniquePresetBoxSize.value = size;
 };
+const uniquePresetTarget = ref(null)
+onClickOutside(uniquePresetTarget, () => {
+  showUniquePreset.value = false
+})
 </script>
 
 <style scoped></style>
