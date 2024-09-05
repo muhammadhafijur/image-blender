@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
         'madimi': ['Madimi One', 'sans-serif'],
+        'quicksand': ['Quicksand', 'sans-serif'],
         
       },
       colors: {

@@ -136,6 +136,8 @@
         <ImageControls />
       </div>
     </section>
+
+    <BlenderShowcase />
   </main>
   <TheFooter />
 </template>
@@ -146,6 +148,7 @@ import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 import TheImageFinder from "../components/TheImageFinder.vue";
 // import "prismjs/themes/prism.css";
+import BlenderShowcase from "@/components/BlenderShowcase.vue";
 import DisplayBox from "@/components/DisplayBox.vue";
 import ImageControls from "@/components/ImageControls.vue";
 import UniquePresets from "@/components/UniquePresets.vue";
