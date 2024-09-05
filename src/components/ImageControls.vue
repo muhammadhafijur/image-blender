@@ -395,7 +395,8 @@
           </div>
         </div>
         <!-- Range Customize Classes GG -->
-        <div class="mt-8">
+        <div class="mt-8 relative">
+          <p class="text-sm text-slate-700 absolute -top-4 right-0">{{ bgLayerOpacity }}%</p>
           <input
             class="h-3.5 w-full bg-gray-200 rounded-full border cursor-pointer appearance-none [&::-webkit-slider-thumb]:h-8 active:[&::-webkit-slider-thumb]:scale-105 duration-300 ease-out [&::-moz-range-thumb]:h-8 [&::-webkit-slider-thumb]:w-8 [&::-moz-range-thumb]:w-8 active:[&::-moz-range-thumb]:scale-105 [&::-webkit-slider-thumb]:rounded-full [&::-moz-range-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-moz-range-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-[#2b2b2b] [&::-moz-range-thumb]:bg-[#2b2b2b] [&::-ms-thumb]:h-8 active:[&::-ms-thumb]:scale-105 [&::-ms-thumb]:w-8 [&::-ms-thumb]:rounded-full [&::-ms-thumb]:bg-[#2b2b2b]"
             type="range"
