@@ -55,10 +55,10 @@
             <button
               title="size 500"
               @click="handleUniquePresetBoxSize(500)"
-              class="p-3 hover:bg-gray-100 dark:text-gray-200 hover:text-green-500 rounded-md"
+              class="p-3 hover:bg-gray-100 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-500 rounded-md"
               :class="[
                 uniquePresetBoxSize === 500
-                  ? 'text-green-500'
+                  ? 'text-green-500 dark:text-green-500'
                   : 'text-gray-500',
               ]"
             >
@@ -82,10 +82,10 @@
             <button
               title="size 400"
               @click="handleUniquePresetBoxSize(400)"
-              class="p-3 hover:bg-gray-100 dark:text-gray-200 hover:text-green-500 rounded-md"
+              class="p-3 hover:bg-gray-100 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-500 rounded-md"
               :class="[
                 uniquePresetBoxSize === 400
-                  ? 'text-green-500'
+                  ? 'text-green-500 dark:text-green-500'
                   : 'text-gray-500',
               ]"
             >
@@ -109,10 +109,10 @@
             <button
               title="size 300"
               @click="handleUniquePresetBoxSize(300)"
-              class="p-3 hover:bg-gray-100 dark:text-gray-200 hover:text-green-500 rounded-md"
+              class="p-3 hover:bg-gray-100 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-500 rounded-md"
               :class="[
                 uniquePresetBoxSize === 300
-                  ? 'text-green-500'
+                  ? 'text-green-500 dark:text-green-500'
                   : 'text-gray-500',
               ]"
             >
