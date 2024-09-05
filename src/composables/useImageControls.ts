@@ -18,28 +18,29 @@ const viaGradient: Ref<string> = ref("#6366f1");
 const toGradient: Ref<string> = ref("#ef4444");
 const showGradientDropdown: Ref<boolean> = ref(false);
 
-const DARK_MODE_KEY = 'darkMode';
-const isDarkMode: Ref<boolean> = ref(false)
-
+const DARK_MODE_KEY = "darkMode";
+const isDarkMode: Ref<boolean> = ref(false);
 
 const useImageControls = () => {
-
-
   const handleViewCode = async () => {
     const codeBlock = `
-  <div class="relative h-full w-full aspect-[${aspectRatio.value}] test">
-    <div class="absolute h-full w-full ${
+<div class="relative h-full w-full aspect-${aspectRatio.value}">
+  <div class="absolute h-full w-full ${
       selectedGradientDirection.value
-        ? `${selectedGradientDirection.value} from-[${fromGradient.value}] via-[${viaGradient.value}] to-[${toGradient.value}]`
+        ? `${selectedGradientDirection.value} ${
+            fromGradient.value ? `from-[${fromGradient.value}] ` : ""
+          }${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
+            toGradient.value ? `to-[${toGradient.value}] ` : ""
+          }`
         : `bg-[${bgLayerColor.value}]`
     } opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
-    <img src="${imageUrl.value}" alt="" class="h-[300px] w-full object-cover" />
-  </div>
+  <img src="${imageUrl.value}" alt="" class="h-full w-full object-cover" />
+</div>
 `;
 
     viewCode.value = codeBlock;
     // Re apply syntax highlighting after updating content
-    await nextTick(); // In case anyone wants to know https://vuejs.org/api/general.html#nexttick 
+    await nextTick(); // In case anyone wants to know https://vuejs.org/api/general.html#nexttick
     Prism.highlightAll();
   };
 
@@ -76,7 +77,7 @@ const useImageControls = () => {
     fromGradient,
     viaGradient,
     toGradient,
-    DARK_MODE_KEY
+    DARK_MODE_KEY,
   };
 };
 

@@ -6,7 +6,10 @@
       >
         <button
           @click="toggleViewMode('preview')"
-          :class="{ 'bg-white dark:bg-custom-dark-400 shadow text-slate-800 dark:text-gray-100': showPreview }"
+          :class="{
+            'bg-white dark:bg-custom-dark-400 shadow text-slate-800 dark:text-gray-100':
+              showPreview,
+          }"
           class="px-3 group py-1.5 rounded-md text-slate-500 text-sm font-semibold justify-center grow flex items-center gap-2"
         >
           <svg
@@ -29,7 +32,10 @@
         </button>
         <button
           @click="toggleViewMode('code')"
-          :class="{ 'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': !showPreview }"
+          :class="{
+            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
+              !showPreview,
+          }"
           class="text-slate-500 justify-center px-3 py-1.5 text-sm font-semibold rounded-md flex items-center gap-2"
         >
           <svg
@@ -132,7 +138,8 @@
         <button
           @click="handleAspectRatio('square')"
           :class="{
-            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': aspectRatio === 'square',
+            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
+              aspectRatio === 'square',
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -153,7 +160,8 @@
         <button
           @click="handleAspectRatio('video')"
           :class="{
-            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': aspectRatio === 'video',
+            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
+              aspectRatio === 'video',
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -174,7 +182,8 @@
         <button
           @click="handleAspectRatio('auto')"
           :class="{
-            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800': aspectRatio === 'auto',
+            'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
+              aspectRatio === 'auto',
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -204,8 +213,8 @@
           aspectRatio === 'square'
             ? 'aspect-square'
             : aspectRatio === 'video'
-            ? 'aspect-video'
-            : 'aspect-auto',
+              ? 'aspect-video'
+              : 'aspect-auto',
         ]"
       >
         <div
@@ -238,9 +247,28 @@
           :disabled="loading"
           @click="incrementDownloadCount"
           class="mt-2 px-4 py-2 bg-slate-800 dark:bg-indigo-500 disabled:bg-gray-200 disabled:text-gray-500 flex items-center gap-2 text-base font-inter justify-center w-full text-white rounded-md"
-          :class="{'cursor-not-allowed': loading}"
+          :class="{ 'cursor-not-allowed': loading }"
         >
-        <svg v-if="loading" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 animate-spin"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
+          <svg
+            v-if="loading"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-6 animate-spin"
+          >
+            <path d="M12 2v4" />
+            <path d="m16.2 7.8 2.9-2.9" />
+            <path d="M18 12h4" />
+            <path d="m16.2 16.2 2.9 2.9" />
+            <path d="M12 18v4" />
+            <path d="m4.9 19.1 2.9-2.9" />
+            <path d="M2 12h4" />
+            <path d="m4.9 4.9 2.9 2.9" />
+          </svg>
           <svg
             v-else
             xmlns="http://www.w3.org/2000/svg"
@@ -259,14 +287,55 @@
             <path d="m17 22 3-3" />
             <circle cx="9" cy="9" r="2" />
           </svg>
-          <span v-if="loading" class="flex items-center gap-2"> Downloading</span>
+          <span v-if="loading" class="flex items-center gap-2">
+            Downloading</span
+          >
           <span v-else>Download Image</span>
         </button>
-        
-        <div v-if="isExternalImageSource"  class="mt-6 flex items-start border p-4 bg-yellow-50 border-yellow-500 rounded-lg gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-yellow-500"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          <p class="text-sm md:text-base text-yellow-600">Unfortunately, images from external links cannot be downloaded due to security restrictions. To customize and download your image, please upload the image directly from your device.</p>
-          <button @click="isExternalImageSource = false" class="w-8 h-8 shrink-0 rounded-md bg-gray-200 grid place-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+
+        <div
+          v-if="isExternalImageSource"
+          class="mt-6 flex items-start border p-4 bg-yellow-50 border-yellow-500 rounded-lg gap-3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-6 shrink-0 text-yellow-500"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 16v-4" />
+            <path d="M12 8h.01" />
+          </svg>
+          <p class="text-sm md:text-base text-yellow-600">
+            Unfortunately, images from external links cannot be downloaded due
+            to security restrictions. To customize and download your image,
+            please upload the image directly from your device.
+          </p>
+          <button
+            @click="isExternalImageSource = false"
+            class="w-8 h-8 shrink-0 rounded-md bg-gray-200 grid place-items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-6"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -290,9 +359,8 @@ const {
   signInWithGoogle,
   signOut,
   incrementDownloadCount,
-  isExternalImageSource
+  isExternalImageSource,
 } = useSupabase();
-
 
 const { myCanvas, drawImage, downloadImage, loading } = useCanvasImageEditor();
 
@@ -334,14 +402,18 @@ const copyCode = () => {
   console.log("hello");
 
   const updatedHtml = `
-  <div class="relative h-full w-full aspect-[${aspectRatio.value}] test">
-    <div class="absolute h-full w-full ${
-      selectedGradientDirection.value
-        ? `${selectedGradientDirection.value} from-[${fromGradient.value}] via-[${viaGradient.value}] to-[${toGradient.value}]`
-        : `bg-[${bgLayerColor.value}]`
-    } opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
-    <img src="${imageUrl.value}" alt="" class="h-[300px] w-full object-cover" />
-  </div>
+<div class="relative h-full w-full aspect-${aspectRatio.value}">
+  <div class="absolute h-full w-full ${
+    selectedGradientDirection.value
+      ? `${selectedGradientDirection.value} ${
+          fromGradient.value ? `from-[${fromGradient.value}] ` : ""
+        }${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
+          toGradient.value ? `to-[${toGradient.value}] ` : ""
+        }`
+      : `bg-[${bgLayerColor.value}]`
+  } opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
+  <img src="${imageUrl.value}" alt="" class="h-full w-full object-cover" />
+</div>
 `;
 
   console.log("Updated HTML:", updatedHtml);
@@ -360,17 +432,13 @@ const copyCode = () => {
     });
 };
 
-
-
 watch(isExternalImageSource, () => {
-  if(isExternalImageSource.value){
-  setTimeout(() => {
-    isExternalImageSource.value = false
-  }, 8000)
-}
-})
-
-
+  if (isExternalImageSource.value) {
+    setTimeout(() => {
+      isExternalImageSource.value = false;
+    }, 8000);
+  }
+});
 
 onMounted(() => {
   Prism.highlightAll();
@@ -385,7 +453,6 @@ const handleAspectRatio = (aspect: string) => {
     aspectRatio.value = "auto";
   }
 };
-
 </script>
 
 <style scoped></style>

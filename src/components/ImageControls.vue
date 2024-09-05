@@ -490,6 +490,7 @@ const updateSliderBackground = () => {
 updateSliderBackground();
 
 const handlePreset = (presetColor: string) => {
+  selectedGradientDirection.value = ""
   imageUrl.value =
     "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480";
   mixBlendValue.value = "multiply";
