@@ -86,7 +86,7 @@
           <a
             href="https://www.linkedin.com/in/muhammadhafijur/"
             target="_blank"
-            class="text-gray-600 dark:text-slate-50 transition duration-300 ease-out hover:scale-110 hover:!text-blue-700"
+            class="text-gray-600 dark:text-slate-50 transition duration-300 ease-out hover:scale-110 hover:text-blue-700 dark:hover:text-blue-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
