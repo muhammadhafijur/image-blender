@@ -50,7 +50,12 @@ cd image-blender && code .
 pnpm install
 ```
 
-4. Compile and Hot-Reload for Development
+4. Copy the `.env.example` file to `.env`:
+```bash
+cp .env.example .env
+```
+
+5. Compile and Hot-Reload for Development
 
 ```bash
 pnpm dev
