@@ -68,10 +68,14 @@ Thanks for helping improve this project!
 
 
 
-## 🍃 Contributors
+## 🍃 Author
 
 [//]: contributor-faces
 
 <a href="https://github.com/muhammadhafijur"><img src="https://avatars.githubusercontent.com/u/85216180?v=4" title="Julia Undeutsch" width="80" height="80"></a>
 
 [//]: contributor-faces
+
+## 🏵️ Badges
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
