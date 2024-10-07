@@ -121,8 +121,7 @@
     </svg>
   </button>
   <TheHeader />
-  <TheImageFinder />
-
+  <BlenderShowcase />
   <section
     class="pt-12 px-4 sm:px-6 md:px-8 flex justify-center font-inter dark:bg-custom-dark-400"
   >
@@ -146,8 +145,7 @@
         <ImageControls />
       </div>
     </section>
-
-    <BlenderShowcase />
+    <TheImageFinder />
   </main>
   <TheFooter />
 </template>
