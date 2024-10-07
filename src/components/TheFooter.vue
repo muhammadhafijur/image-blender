@@ -52,7 +52,7 @@
       <div
         class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:justify-between sm:space-y-0"
       >
-        <p class="text-base text-slate-700 rounded-lg">
+        <p class="text-base text-gray-200 rounded-lg">
           Created by
           <a
             href="https://www.linkedin.com/in/muhammadhafijur/"
