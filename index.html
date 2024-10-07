@@ -1,38 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <style>
-      #backToTopBtn {
-        display: none;
-        position: fixed;
-        bottom: 100px;
-        right: 30px;
-        z-index: 99;
-        font-size: 16px;
-        border: none;
-        outline: none;
-        background-color: #1f1f1f;
-        color: white;
-        cursor: pointer;
-        padding: 15px 15px;
-        border-radius: 50px;
-        box-shadow: 0 4px 8px rgba(35, 35, 35, 0.3);
-        transition: opacity 0.3s, background-color 0.3s;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #backToTopBtn:hover {
-        background-color: #000000;
-      }
-
-      #backToTopBtn svg {
-        width: 30px;
-        height: 32px;
-        margin-left: 0;
-      }
-    </style>
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,45 +21,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Madimi+One&family=Quicksand:wght@300..700&display=swap"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Madimi+One&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet"
     />
-  </head>
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100">
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-    <button id="backToTopBtn" title="Go to top">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-fading-arrow-up">
-        <path d="M12 2a10 10 0 0 1 7.38 16.75"/>
-        <path d="m16 12-4-4-4 4"/>
-        <path d="M12 16V8"/>
-        <path d="M2.5 8.875a10 10 0 0 0-.5 3"/>
-        <path d="M2.83 16a10 10 0 0 0 2.43 3.4"/>
-        <path d="M4.636 5.235a10 10 0 0 1 .891-.857"/>
-        <path d="M8.644 21.42a10 10 0 0 0 7.631-.38"/>
-      </svg>
+    
+    <button id="backToTopBtn" title="Go to top" class="hidden fixed bottom-24 right-6 z-50 bg-gray-800 text-white rounded-full shadow-lg p-3 transition-opacity duration-300 flex items-center justify-center hover:bg-black">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-fading-arrow-up">
+            <path d="M12 2a10 10 0 0 1 7.38 16.75" />
+            <path d="m16 12-4-4-4 4" />
+            <path d="M12 16V8" />
+            <path d="M2.5 8.875a10 10 0 0 0-.5 3" />
+            <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
+            <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
+            <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
+        </svg>
     </button>
+
     <script>
-      const backToTopBtn = document.getElementById("backToTopBtn");
+        const backToTopBtn = document.getElementById("backToTopBtn");
 
-      window.onscroll = function() {
-        scrollFunction();
-      };
+        window.onscroll = function() {
+            scrollFunction();
+        };
 
-      function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          backToTopBtn.style.display = "flex";
-        } else {
-          backToTopBtn.style.display = "none";
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.classList.remove("hidden");
+            } else {
+                backToTopBtn.classList.add("hidden");
+            }
         }
-      }
 
-      backToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-      });
     </script>
-  </body>
+</body>
 </html>
