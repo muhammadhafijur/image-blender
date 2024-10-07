@@ -1,12 +1,12 @@
 <template>
-  <section class="bg-white dark:bg-custom-dark-400">
+  <section class="bg-white dark:bg-custom-dark-400 pt-16 pb-44">
     <div
-      class="mt-12 max-w-screen-xl  mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 text-center"
+      class="mt-12 max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 text-center"
     >
       <h2
-        class="text-transparent bg-gradient-to-r from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text font-inter text-xl md:text-2xl lg:text-3xl font-extrabold"
+        class="text-transparent bg-gradient-to-r from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text font-inter text-xl md:text-2xl lg:text-5xl font-extrabold"
       >
-        Images Created with Image Blender
+        Creates Unique Images with Image Blender
       </h2>
       <p class="text-base md:text-lg mt-4 text-gray-500 dark:text-gray-300">
         Explore amazing images made with Image Blender
@@ -106,6 +106,13 @@
           </div>
         </SwiperSlide>
       </Swiper>
+    </div>
+    <div class="flex justify-center mt-8">
+      <button
+        class="bg-gradient-to-r from-sky-500 via-blue-500 to-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-3/4 md:w-1/4 mx-4 sm:mx-8"
+      >
+        Try Image Blender
+      </button>
     </div>
   </section>
 </template>
