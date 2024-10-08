@@ -1,5 +1,23 @@
 <template>
   <UniquePresets />
+
+  <!-- Back to Top Button -->
+  <button
+    v-if="showScrollToTopButton"
+    @click="scrollToTop"
+    class="w-8 h-8 sm:w-12 sm:h-12 rounded-[20px] fixed grid place-items-center z-20 text-white right-6 bottom-20 bg-slate-800 dark:bg-indigo-500 transition duration-300 ease-out"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-fading-arrow-up">
+      <path d="M12 2a10 10 0 0 1 7.38 16.75" />
+      <path d="m16 12-4-4-4 4" />
+      <path d="M12 16V8" />
+      <path d="M2.5 8.875a10 10 0 0 0-.5 3" />
+      <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
+      <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
+      <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
+    </svg>
+  </button>
+
   <button
     @click="toggleFullScreen"
     class="w-8 h-8 sm:w-12 sm:h-12 rounded-[20px] fixed grid place-items-center z-20 text-white right-6 bottom-6 bg-slate-800 dark:bg-indigo-500 transition duration-300 ease-out group-hover:-translate-y-32"
@@ -7,13 +25,13 @@
     <svg
       v-if="isFullScreen"
       xmlns="http://www.w3.org/2000/svg"
-      class="size-4 sm:size-6"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      class="size-4 sm:size-6"
     >
       <path d="M8 3v3a2 2 0 0 1-2 2H3" />
       <path d="M21 8h-3a2 2 0 0 1-2-2V3" />
@@ -67,21 +85,11 @@
         </button>
       </div>
       <p class="mt-3 sm:mt-4 text-gray-500 text-[10px] sm:text-sm">
-        There have been 117 billion+ people who have lived and died on this blue
-        planet. But there has never been and will never be another
-        <span
-          class="underline decoration-wavy decoration-emerald-400 text-emerald-500 font-semibold"
-          >You</span
-        >. So take care of yourself and take care of your soul. Do not try to be
-        the smartest in the room; try to be the
-        <span
-          class="underline decoration-wavy decoration-emerald-400 text-emerald-500 font-semibold"
-          >Kindest</span
-        >.
+        There have been 117 billion+ people who have lived and died on this blue planet. But there has never been and will never be another
+        <span class="underline decoration-wavy decoration-emerald-400 text-emerald-500 font-semibold">You</span>. So take care of yourself and take care of your soul. Do not try to be the smartest in the room; try to be the
+        <span class="underline decoration-wavy decoration-emerald-400 text-emerald-500 font-semibold">Kindest</span>.
       </p>
-      <div
-        class="mt-4 sm:mt-6 grid grid-cols-2 gap-2 md:gap-4 text-[8px] sm:text-xs font-medium"
-      >
+      <div class="mt-4 sm:mt-6 grid grid-cols-2 gap-2 md:gap-4 text-[8px] sm:text-xs font-medium">
         <a
           href="https://github.com/muhammadhafijur/image-blender"
           target="_blank"
@@ -101,9 +109,10 @@
       </div>
     </div>
   </div>
+
   <button
     @click="handlePopupFeedback"
-    class="mt-4 w-8 h-8 sm:w-12 fixed animated-div left-6 bottom-6 z-20 sm:h-12 rounded-xl sm:rounded-[20px] bg-slate-900 dark:bg-indigo-500 grid place-items-center tex-white"
+    class="mt-4 w-8 h-8 sm:w-12 fixed animated-div left-6 bottom-6 z-20 sm:h-12 rounded-xl sm:rounded-[20px] bg-slate-900 dark:bg-indigo-500 grid place-items-center text-white"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -120,28 +129,21 @@
       />
     </svg>
   </button>
+
   <TheHeader />
   <TheImageFinder />
 
-  <section
-    class="pt-12 px-4 sm:px-6 md:px-8 flex justify-center font-inter dark:bg-custom-dark-400"
-  >
-    <p
-      class="border px-4 py-1 w-auto text-center text-sm text-slate-500 dark:text-gray-300 dark:bg-slate-900 dark:border-emerald-500 rounded-full"
-    >
+  <section class="pt-12 px-4 sm:px-6 md:px-8 flex justify-center font-inter dark:bg-custom-dark-400">
+    <p class="border px-4 py-1 w-auto text-center text-sm text-slate-500 dark:text-gray-300 dark:bg-slate-900 dark:border-emerald-500 rounded-full">
       Over
-      <span class="text-emerald-500 dark:text-gray-100 font-semibold">{{
-        downloadCount
-      }}</span>
+      <span class="text-emerald-500 dark:text-gray-100 font-semibold">{{ downloadCount }}</span>
       images downloaded so far!
     </p>
   </section>
 
   <main class="font-inter bg-white min-h-[calc(100vh-68px)] flex flex-col">
     <section class="w-full grow h-full bg-white dark:bg-custom-dark-400 py-12">
-      <div
-        class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 items-start gap-8"
-      >
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 items-start gap-8">
         <DisplayBox />
         <ImageControls />
       </div>
@@ -149,117 +151,58 @@
 
     <BlenderShowcase />
   </main>
+
   <TheFooter />
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 import TheImageFinder from "../components/TheImageFinder.vue";
-// import "prismjs/themes/prism.css";
-import BlenderShowcase from "@/components/BlenderShowcase.vue";
-import DisplayBox from "@/components/DisplayBox.vue";
-import ImageControls from "@/components/ImageControls.vue";
-import UniquePresets from "@/components/UniquePresets.vue";
-import "prismjs/components/prism-javascript";
-import "prismjs/components/prism-markup";
-import "prismjs/themes/prism-tomorrow.css";
-import useImageControls from "../composables/useImageControls";
-import useSupabase from "../composables/useSupabase";
+import BlenderShowcase from "../components/BlenderShowcase.vue";
+import ImageControls from "../components/ImageControls.vue";
+import DisplayBox from "../components/DisplayBox.vue";
+import UniquePresets from "../components/UniquePresets.vue";
 
-const {
-  imageUrl,
-  aspectRatio,
-  showPreview,
-  viewCode,
-  handleViewCode,
-  bgLayerOpacity,
-  bgLayerColor,
-  mixBlendValue,
-  selectedGradientDirection,
-  fromGradient,
-  viaGradient,
-  toGradient,
-} = useImageControls();
-
-const { downloadCount, session, signInWithGoogle, fetchDownloadCount } =
-  useSupabase();
-
-onMounted(() => {
-  fetchDownloadCount();
-});
-
+const downloadCount = ref(0);
 const showPopupFeedback = ref(false);
-
-const handlePopupFeedback = () => {
-  showPopupFeedback.value = !showPopupFeedback.value;
-};
-
-setTimeout(() => {
-  showPopupFeedback.value = true;
-}, 5000);
-
-// https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480
-
+const showScrollToTopButton = ref(false);
 const isFullScreen = ref(false);
 
+const handlePopupFeedback = () => {
+  showPopupFeedback.value = true;
+};
+
 const toggleFullScreen = () => {
-  if (!isFullScreen.value) {
-    enterFullScreen();
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    isFullScreen.value = true;
   } else {
-    exitFullScreen();
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+      isFullScreen.value = false;
+    }
   }
 };
 
-const enterFullScreen = () => {
-  const element = document.documentElement; // FULL PAGE
-
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else {
-    console.warn("Fullscreen api is not supported.");
-  }
-
-  isFullScreen.value = true;
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-const exitFullScreen = () => {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else {
-    console.warn("Fullscreen api is not supported.");
-  }
-  isFullScreen.value = false;
+const handleScroll = () => {
+  showScrollToTopButton.value = window.scrollY > 200;
 };
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <style scoped>
-.animated-div {
-  animation: jump-rotate 2s forwards;
-  animation-delay: 3s;
-  opacity: 0;
-}
-
-@keyframes jump-rotate {
-  0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
-  }
-  30% {
-    transform: translateY(-200px) rotate(360deg); /* Adjust height and rotation */
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-.circle-animation {
-  animation: dotCircleAnimation 3s cubic-bezier(0.42, 0, 0.58, 1);
-  /* animation-delay: 1s; */
-  transform-origin: center;
-  will-change: transform, opacity;
-}
+/* Add your styles here */
 </style>
