@@ -32,7 +32,7 @@ const useSupabase = () => {
 
   const incrementDownloadCount = async () => {
     if (imageUrl.value && imageUrl.value.startsWith("http")) {
-      isExternalImageSource.value = true
+      isExternalImageSource.value = true;
       return;
     }
 

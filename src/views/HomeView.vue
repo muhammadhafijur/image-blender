@@ -172,17 +172,17 @@ import useSupabase from "../composables/useSupabase";
 const { downloadCount, fetchDownloadCount } = useSupabase();
 
 onMounted(() => {
-	fetchDownloadCount();
+  fetchDownloadCount();
 });
 
 const showPopupFeedback = ref(false);
 
 const handlePopupFeedback = () => {
-	showPopupFeedback.value = !showPopupFeedback.value;
+  showPopupFeedback.value = !showPopupFeedback.value;
 };
 
 setTimeout(() => {
-	showPopupFeedback.value = true;
+  showPopupFeedback.value = true;
 }, 5000);
 
 // https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480
@@ -190,32 +190,32 @@ setTimeout(() => {
 const isFullScreen = ref(false);
 
 const toggleFullScreen = () => {
-	if (!isFullScreen.value) {
-		enterFullScreen();
-	} else {
-		exitFullScreen();
-	}
+  if (!isFullScreen.value) {
+    enterFullScreen();
+  } else {
+    exitFullScreen();
+  }
 };
 
 const enterFullScreen = () => {
-	const element = document.documentElement; // FULL PAGE
+  const element = document.documentElement; // FULL PAGE
 
-	if (element.requestFullscreen) {
-		element.requestFullscreen();
-	} else {
-		console.warn("Fullscreen api is not supported.");
-	}
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else {
+    console.warn("Fullscreen api is not supported.");
+  }
 
-	isFullScreen.value = true;
+  isFullScreen.value = true;
 };
 
 const exitFullScreen = () => {
-	if (document.exitFullscreen) {
-		document.exitFullscreen();
-	} else {
-		console.warn("Fullscreen api is not supported.");
-	}
-	isFullScreen.value = false;
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else {
+    console.warn("Fullscreen api is not supported.");
+  }
+  isFullScreen.value = false;
 };
 </script>
 

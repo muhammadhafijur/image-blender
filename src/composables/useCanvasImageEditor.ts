@@ -69,7 +69,7 @@ const useImageCanvasEditor = () => {
                 0,
                 canvas.height,
                 canvas.width,
-                0
+                0,
               );
               break;
             case "bg-gradient-to-r":
@@ -80,7 +80,7 @@ const useImageCanvasEditor = () => {
                 0,
                 0,
                 canvas.width,
-                canvas.height
+                canvas.height,
               );
               break;
             case "bg-gradient-to-b":
@@ -91,7 +91,7 @@ const useImageCanvasEditor = () => {
                 canvas.width,
                 0,
                 0,
-                canvas.height
+                canvas.height,
               );
               break;
             case "bg-gradient-to-l":
@@ -102,7 +102,7 @@ const useImageCanvasEditor = () => {
                 canvas.width,
                 canvas.height,
                 0,
-                0
+                0,
               );
               break;
           }

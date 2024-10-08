@@ -131,7 +131,7 @@
             <!-- Dropdown Menu -->
             <div
               v-if="showProfileDropdown && session"
-                ref="dropdownTarget"
+              ref="dropdownTarget"
               class="absolute py-1 right-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20"
             >
               <button
@@ -192,12 +192,11 @@ onMounted(async () => {
   }
 });
 
-
-const dropdownTarget = ref(null)
+const dropdownTarget = ref(null);
 
 onClickOutside(dropdownTarget, () => {
-  showProfileDropdown.value = false
-})
+  showProfileDropdown.value = false;
+});
 </script>
 
 <style scoped></style>

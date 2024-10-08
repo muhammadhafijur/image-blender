@@ -26,14 +26,14 @@ const useImageControls = () => {
     const codeBlock = `
 <div class="relative h-full w-full aspect-${aspectRatio.value}">
   <div class="absolute h-full w-full ${
-      selectedGradientDirection.value
-        ? `${selectedGradientDirection.value} ${
-            fromGradient.value ? `from-[${fromGradient.value}] ` : ""
-          }${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
-            toGradient.value ? `to-[${toGradient.value}] ` : ""
-          }`
-        : `bg-[${bgLayerColor.value}]`
-    } opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
+    selectedGradientDirection.value
+      ? `${selectedGradientDirection.value} ${
+          fromGradient.value ? `from-[${fromGradient.value}] ` : ""
+        }${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
+          toGradient.value ? `to-[${toGradient.value}] ` : ""
+        }`
+      : `bg-[${bgLayerColor.value}]`
+  } opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
   <img src="${imageUrl.value}" alt="" class="h-full w-full object-cover" />
 </div>
 `;
@@ -58,7 +58,7 @@ const useImageControls = () => {
       aspectRatio,
     ],
     handleViewCode,
-    { immediate: true }
+    { immediate: true },
   );
 
   return {

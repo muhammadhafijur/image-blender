@@ -4,7 +4,9 @@
       <button
         class="capitalize text-sm font-medium border dark:border-gray-400 rounded-md p-2 text-gray-700 dark:text-gray-200"
         :class="[
-          mixBlendValue === item ? 'bg-green-500 dark:bg-indigo-500 border-green-500 dark:border-indigo-500 text-white' : 'bg-white dark:bg-custom-dark-400',
+          mixBlendValue === item
+            ? 'bg-green-500 dark:bg-indigo-500 border-green-500 dark:border-indigo-500 text-white'
+            : 'bg-white dark:bg-custom-dark-400',
         ]"
         v-for="item in mixBlendProperties"
         :key="item"
@@ -167,7 +169,7 @@
               v-model="selectedGradientDirection"
               type="text"
               id="Gradient"
-              class="w-full rounded-lg py-3 border px-2 border-gray-300 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 pe-10  sm:text-sm [&::-webkit-calendar-picker-indicator]:opacity-0"
+              class="w-full rounded-lg py-3 border px-2 border-gray-300 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 pe-10 sm:text-sm [&::-webkit-calendar-picker-indicator]:opacity-0"
               placeholder="Please select"
             />
 
@@ -205,7 +207,9 @@
         </div>
         <div class="mt-4 grid grid-cols-3 gap-3">
           <div class="">
-            <label for="from-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
+            <label
+              for="from-gd"
+              class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
               >From</label
             >
             <div class="mt-1 flex gap-1">
@@ -268,7 +272,9 @@
             </div>
           </div>
           <div class="">
-            <label for="via-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
+            <label
+              for="via-gd"
+              class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
               >Via</label
             >
             <div class="mt-1 flex gap-1">
@@ -331,7 +337,9 @@
             </div>
           </div>
           <div class="">
-            <label for="to-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
+            <label
+              for="to-gd"
+              class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
               >To</label
             >
             <div class="mt-1 flex gap-1">
@@ -396,7 +404,11 @@
         </div>
         <!-- Range Customize Classes GG -->
         <div class="mt-8 relative">
-          <p class="text-sm text-slate-700 dark:text-gray-100 absolute -top-4 right-0">{{ bgLayerOpacity }}%</p>
+          <p
+            class="text-sm text-slate-700 dark:text-gray-100 absolute -top-4 right-0"
+          >
+            {{ bgLayerOpacity }}%
+          </p>
           <input
             class="h-3.5 w-full bg-gray-200 rounded-full border cursor-pointer appearance-none [&::-webkit-slider-thumb]:h-8 active:[&::-webkit-slider-thumb]:scale-105 duration-300 ease-out [&::-moz-range-thumb]:h-8 [&::-webkit-slider-thumb]:w-8 [&::-moz-range-thumb]:w-8 active:[&::-moz-range-thumb]:scale-105 [&::-webkit-slider-thumb]:rounded-full [&::-moz-range-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-moz-range-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-[#2b2b2b] [&::-moz-range-thumb]:bg-[#2b2b2b] [&::-ms-thumb]:h-8 active:[&::-ms-thumb]:scale-105 [&::-ms-thumb]:w-8 [&::-ms-thumb]:rounded-full [&::-ms-thumb]:bg-[#2b2b2b]"
             type="range"
@@ -493,7 +505,7 @@ const updateSliderBackground = () => {
 updateSliderBackground();
 
 const handlePreset = (presetColor: string) => {
-  selectedGradientDirection.value = ""
+  selectedGradientDirection.value = "";
   // imageUrl.value =
   //   "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480";
   mixBlendValue.value = "multiply";
@@ -526,11 +538,11 @@ const gradientDirections = [
   "bg-gradient-to-tl",
 ];
 
-const gradientDropdownTarget = ref(null)
+const gradientDropdownTarget = ref(null);
 
 onClickOutside(gradientDropdownTarget, () => {
-  showGradientDropdown.value = false
-})
+  showGradientDropdown.value = false;
+});
 </script>
 
 <style scoped>

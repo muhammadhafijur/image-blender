@@ -117,8 +117,6 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-
-
 .line-animation {
   animation: lineMove 15s ease-out forwards;
 }

@@ -164,7 +164,7 @@
                   preset.direction,
                   preset.from,
                   preset.via,
-                  preset.to
+                  preset.to,
                 )
               "
               class="rounded-md text-sm font-medium disabled:cursor-not-allowed h-auto p-2 flex flex-col items-center justify-center text-center bg-[var(--presetColor)]"
@@ -407,7 +407,7 @@ const handlePreset = (
   direction: string,
   from: string,
   via: string,
-  to: string
+  to: string,
 ) => {
   console.log("dev-tool");
   mixBlendValue.value = "multiply";
@@ -423,10 +423,10 @@ const uniquePresetBoxSize = ref(500);
 const handleUniquePresetBoxSize = (size: number) => {
   uniquePresetBoxSize.value = size;
 };
-const uniquePresetTarget = ref(null)
+const uniquePresetTarget = ref(null);
 onClickOutside(uniquePresetTarget, () => {
-  showUniquePreset.value = false
-})
+  showUniquePreset.value = false;
+});
 </script>
 
 <style scoped></style>
