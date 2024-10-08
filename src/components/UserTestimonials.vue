@@ -14,12 +14,12 @@
         See what users are saying about Image Blender.
       </p>
       <div
-        class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
+        class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 py-8 md:py-12"
       >
         <div
           v-for="review in reviews"
           :key="review.id"
-          class="border border-slate-200 dark:border-slate-700 p-6 rounded-xl bg-slate-50 dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow duration-300"
+          class="break-inside-avoid border border-slate-200 dark:border-slate-700 p-6 rounded-xl bg-slate-50 dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow duration-300"
         >
           <q class="block mb-4 text-slate-700 dark:text-slate-300 italic">{{
             review.text
