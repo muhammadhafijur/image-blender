@@ -1,0 +1,54 @@
+{
+	"reviews": [
+		{
+			"id": "1",
+			"text": "great job. keep it up",
+			"author": {
+				"username": "amzad-dev",
+				"avatar": "https://avatars.githubusercontent.com/u/110081919?s=80&u=44c2524dfc3662ee9c2bd2d799a8192050b20317&v=4",
+				"name": "Md Amzad Hossain",
+				"role": "Frontend Developer"
+			}
+		},
+		{
+			"id": "2",
+			"text": "I like most the UI of the application\nNice project brother",
+			"author": {
+				"username": "TalaDeepak",
+				"avatar": "https://avatars.githubusercontent.com/u/127661494?s=80&u=d64c20bed3e69fdf2d2627f9978086c0997c8d7c&v=4",
+				"name": "Deepak Panghal",
+				"role": "Software Engineer"
+			}
+		},
+		{
+			"id": "3",
+			"text": "As-Salaam-Alaikum, brother. Your web app looks amazing with these nice designs. 😊",
+			"author": {
+				"username": "MohamadSalman11",
+				"avatar": "https://avatars.githubusercontent.com/u/139472418?s=80&u=305ded58de6c407d313b0abcd168f79f85e06bbe&v=4",
+				"name": "Mohamad Salman",
+				"role": "Web Developer"
+			}
+		},
+		{
+			"id": "4",
+			"text": "Hi I've loved the look of the application, the functionality is amazing, and the full screen feature, i have no idea how that is implemented. Thanks so much for making it open source",
+			"author": {
+				"username": "eliezerjoel",
+				"avatar": "https://avatars.githubusercontent.com/u/112389568?s=80&u=25b385a79a396e8d2e62b65264f3a96a0f284561&v=4",
+				"name": "eliezerjoel",
+				"role": "Frontend Developer"
+			}
+		},
+		{
+			"id": "5",
+			"text": "Clean Project! Looks good ✨",
+			"author": {
+				"username": "Adebesin Cell",
+				"avatar": "https://avatars.githubusercontent.com/u/66301634?s=80&u=eb06245d28142a17a803d29fad52f8f63bbb738d&v=4",
+				"name": "Adebesin Tolulope (Lope)",
+				"role": "Software Engineer"
+			}
+		}
+	]
+}
