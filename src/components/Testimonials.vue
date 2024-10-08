@@ -2,79 +2,79 @@
 import { computed, ref } from "vue";
 
 const testimonials = ref([
-	{
-		quote:
-			"Image Blender has revolutionized the way I edit photos. Its intuitive interface and powerful blending tools have saved me countless hours of work. It's a game-changer for both amateur and professional photographers.",
-		name: "Emily Chen",
-		role: "Professional Photographer",
-		image:
-			"https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
-	},
-	{
-		quote:
-			"As a graphic designer, I've tried numerous image editing tools, but Image Blender stands out. Its seamless blending capabilities and user-friendly interface make it my go-to software for creating stunning visuals.",
-		name: "Alex Rodriguez",
-		role: "Senior Graphic Designer",
-		image:
-			"https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
-	},
-	{
-		quote:
-			"Image Blender has been a game-changer for our marketing team. We can now create eye-catching social media content in minutes, thanks to its diverse range of blending modes and effects. It's boosted our productivity significantly!",
-		name: "Sarah Thompson",
-		role: "Digital Marketing Manager",
-		image:
-			"https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
-	},
-	{
-		quote:
-			"As an amateur photographer, I was intimidated by complex editing software. Image Blender changed that for me. Its user-friendly interface and powerful features have helped me take my photography to the next level.",
-		name: "Michael Lee",
-		role: "Hobbyist Photographer",
-		image:
-			"https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
-	},
-	{
-		quote:
-			"Image Blender has become an essential tool in our product design process. Its ability to seamlessly blend different design elements has greatly improved our prototyping speed and final product quality.",
-		name: "Lisa Nguyen",
-		role: "Product Designer at TechCorp",
-		image:
-			"https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
-	},
-	{
-		quote:
-			"I've been using Image Blender for my art projects, and I'm blown away by its versatility. Whether I'm creating digital collages or enhancing photos, it offers the perfect balance of power and ease of use. Highly recommended!",
-		name: "David Wilson",
-		role: "Digital Artist",
-		image:
-			"https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
-	},
+  {
+    quote:
+      "Image Blender has revolutionized the way I edit photos. Its intuitive interface and powerful blending tools have saved me countless hours of work. It's a game-changer for both amateur and professional photographers.",
+    name: "Emily Chen",
+    role: "Professional Photographer",
+    image:
+      "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
+  },
+  {
+    quote:
+      "As a graphic designer, I've tried numerous image editing tools, but Image Blender stands out. Its seamless blending capabilities and user-friendly interface make it my go-to software for creating stunning visuals.",
+    name: "Alex Rodriguez",
+    role: "Senior Graphic Designer",
+    image:
+      "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
+  },
+  {
+    quote:
+      "Image Blender has been a game-changer for our marketing team. We can now create eye-catching social media content in minutes, thanks to its diverse range of blending modes and effects. It's boosted our productivity significantly!",
+    name: "Sarah Thompson",
+    role: "Digital Marketing Manager",
+    image:
+      "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
+  },
+  {
+    quote:
+      "As an amateur photographer, I was intimidated by complex editing software. Image Blender changed that for me. Its user-friendly interface and powerful features have helped me take my photography to the next level.",
+    name: "Michael Lee",
+    role: "Hobbyist Photographer",
+    image:
+      "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
+  },
+  {
+    quote:
+      "Image Blender has become an essential tool in our product design process. Its ability to seamlessly blend different design elements has greatly improved our prototyping speed and final product quality.",
+    name: "Lisa Nguyen",
+    role: "Product Designer at TechCorp",
+    image:
+      "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
+  },
+  {
+    quote:
+      "I've been using Image Blender for my art projects, and I'm blown away by its versatility. Whether I'm creating digital collages or enhancing photos, it offers the perfect balance of power and ease of use. Highly recommended!",
+    name: "David Wilson",
+    role: "Digital Artist",
+    image:
+      "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480",
+  },
 ]);
 
 const MAX_COLUMNS = 3;
 const ITEMS_PER_COLUMN = 3;
 
 const columnsCount = computed(() => {
-	const totalItems = testimonials.value.length;
-	return Math.min(
-		MAX_COLUMNS,
-		Math.ceil(totalItems / Math.ceil(totalItems / ITEMS_PER_COLUMN)),
-	);
+  const totalItems = testimonials.value.length;
+  return Math.min(
+    MAX_COLUMNS,
+    Math.ceil(totalItems / Math.ceil(totalItems / ITEMS_PER_COLUMN)),
+  );
 });
 
 const testimonialColumns = computed(() => {
-	const columns = [];
-	const totalItems = testimonials.value.length;
-	const itemsPerColumn = Math.ceil(totalItems / columnsCount.value);
+  const columns = [];
+  const totalItems = testimonials.value.length;
+  const itemsPerColumn = Math.ceil(totalItems / columnsCount.value);
 
-	for (let i = 0; i < columnsCount.value; i++) {
-		const startIndex = i * itemsPerColumn;
-		const endIndex = Math.min(startIndex + itemsPerColumn, totalItems);
-		columns.push(testimonials.value.slice(startIndex, endIndex));
-	}
+  for (let i = 0; i < columnsCount.value; i++) {
+    const startIndex = i * itemsPerColumn;
+    const endIndex = Math.min(startIndex + itemsPerColumn, totalItems);
+    columns.push(testimonials.value.slice(startIndex, endIndex));
+  }
 
-	return columns;
+  return columns;
 });
 </script>
 
@@ -95,8 +95,15 @@ const testimonialColumns = computed(() => {
       </p>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="testimonial-grid" :style="{ 'grid-template-columns': `repeat(${columnsCount}, 1fr)` }">
-        <div v-for="(column, columnIndex) in testimonialColumns" :key="columnIndex" class="testimonial-column">
+      <div
+        class="testimonial-grid"
+        :style="{ 'grid-template-columns': `repeat(${columnsCount}, 1fr)` }"
+      >
+        <div
+          v-for="(column, columnIndex) in testimonialColumns"
+          :key="columnIndex"
+          class="testimonial-column"
+        >
           <div
             v-for="testimonial in column"
             :key="testimonial.name"
@@ -112,7 +119,9 @@ const testimonialColumns = computed(() => {
                 class="w-12 h-12 rounded-full mr-4"
               />
               <div>
-                <div class="text-gray-900 dark:text-white font-semibold text-sm">
+                <div
+                  class="text-gray-900 dark:text-white font-semibold text-sm"
+                >
                   {{ testimonial.name }}
                 </div>
                 <div class="text-gray-600 dark:text-gray-400 text-xs">
