@@ -148,20 +148,22 @@
     </section>
 
     <BlenderShowcase />
+    <UserTestimonials />
   </main>
   <TheFooter />
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import TheFooter from "../components/TheFooter.vue";
-import TheHeader from "../components/TheHeader.vue";
-import TheImageFinder from "../components/TheImageFinder.vue";
 // import "prismjs/themes/prism.css";
 import BlenderShowcase from "@/components/BlenderShowcase.vue";
 import DisplayBox from "@/components/DisplayBox.vue";
 import ImageControls from "@/components/ImageControls.vue";
 import UniquePresets from "@/components/UniquePresets.vue";
+import UserTestimonials from "@/components/UserTestimonials.vue";
+import { onMounted, ref } from "vue";
+import TheFooter from "../components/TheFooter.vue";
+import TheHeader from "../components/TheHeader.vue";
+import TheImageFinder from "../components/TheImageFinder.vue";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
 import "prismjs/themes/prism-tomorrow.css";
@@ -170,35 +172,35 @@ import useSupabase from "../composables/useSupabase";
 import HeroSection from "@/components/HeroSection.vue";
 
 const {
-  imageUrl,
-  aspectRatio,
-  showPreview,
-  viewCode,
-  handleViewCode,
-  bgLayerOpacity,
-  bgLayerColor,
-  mixBlendValue,
-  selectedGradientDirection,
-  fromGradient,
-  viaGradient,
-  toGradient,
+	imageUrl,
+	aspectRatio,
+	showPreview,
+	viewCode,
+	handleViewCode,
+	bgLayerOpacity,
+	bgLayerColor,
+	mixBlendValue,
+	selectedGradientDirection,
+	fromGradient,
+	viaGradient,
+	toGradient,
 } = useImageControls();
 
 const { downloadCount, session, signInWithGoogle, fetchDownloadCount } =
-  useSupabase();
+	useSupabase();
 
 onMounted(() => {
-  fetchDownloadCount();
+	fetchDownloadCount();
 });
 
 const showPopupFeedback = ref(false);
 
 const handlePopupFeedback = () => {
-  showPopupFeedback.value = !showPopupFeedback.value;
+	showPopupFeedback.value = !showPopupFeedback.value;
 };
 
 setTimeout(() => {
-  showPopupFeedback.value = true;
+	showPopupFeedback.value = true;
 }, 5000);
 
 // https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480
@@ -206,32 +208,32 @@ setTimeout(() => {
 const isFullScreen = ref(false);
 
 const toggleFullScreen = () => {
-  if (!isFullScreen.value) {
-    enterFullScreen();
-  } else {
-    exitFullScreen();
-  }
+	if (!isFullScreen.value) {
+		enterFullScreen();
+	} else {
+		exitFullScreen();
+	}
 };
 
 const enterFullScreen = () => {
-  const element = document.documentElement; // FULL PAGE
+	const element = document.documentElement; // FULL PAGE
 
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else {
-    console.warn("Fullscreen api is not supported.");
-  }
+	if (element.requestFullscreen) {
+		element.requestFullscreen();
+	} else {
+		console.warn("Fullscreen api is not supported.");
+	}
 
-  isFullScreen.value = true;
+	isFullScreen.value = true;
 };
 
 const exitFullScreen = () => {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else {
-    console.warn("Fullscreen api is not supported.");
-  }
-  isFullScreen.value = false;
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else {
+		console.warn("Fullscreen api is not supported.");
+	}
+	isFullScreen.value = false;
 };
 </script>
 
