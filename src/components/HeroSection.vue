@@ -1,16 +1,16 @@
 <template>
-  <div class="p-4 py-44">
+  <div class="p-4 py-48 md:py-64">
     <div
-      class="relative grid h-[50vh] grid-cols-1 gap-4 lg:h-[330px] lg:grid-cols-2"
+      class="relative max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 grid h-[50vh] grid-cols-1 gap-4 lg:h-[330px] lg:grid-cols-2"
     >
       <div
         class="flex flex-col justify-center rounded-xl bg-[#F5F5F7] py-16 lg:py-0"
       >
         <h1
-          class="bg-gradient-to-r from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text text-center text-xl font-extrabold text-transparent md:text-2xl lg:text-start lg:text-3xl xl:text-4xl p-2"
+          class="bg-gradient-to-r from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text text-center text-xl font-extrabold text-transparent md:text-2xl lg:text-start lg:text-3xl xl:text-4xl p-4"
         >
-          Image Blending Tool for transforming <br />
-          your images with powerful effects.
+          Image Blending Tool for transforming your images with powerful
+          effects.
         </h1>
       </div>
       <div class="h-full w-full overflow-hidden rounded-xl">
@@ -45,14 +45,15 @@
           </div>
         </div>
       </div>
-      <div class="absolute inset-0 grid place-items-center">
+      <div class="absolute inset-0 grid place-items-center -top-8 md:top-0">
         <div class="h-28 w-28 bg-white grid place-items-center rounded-full">
-          <button
-            class="h-24 w-24 rounded-full border-red-500 bg-zinc-800 text-base font-semibold text-white"
+          <a
+            href="#editor"
+            class="h-24 w-24 rounded-full bg-blue-600 flex items-center justify-center text-base font-semibold hover:bg-blue-700 transition-colors duration-300 text-white text-center"
           >
             Start <br />
             Blending
-          </button>
+          </a>
         </div>
       </div>
     </div>
