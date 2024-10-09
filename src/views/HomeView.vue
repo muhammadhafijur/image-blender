@@ -121,7 +121,7 @@
     </svg>
   </button>
   <TheHeader />
-
+  <HeroSection />
   <section
     class="pt-12 px-4 sm:px-6 md:px-8 flex justify-center font-inter dark:bg-custom-dark-400"
   >
@@ -167,6 +167,7 @@ import "prismjs/components/prism-markup";
 import "prismjs/themes/prism-tomorrow.css";
 import useImageControls from "../composables/useImageControls";
 import useSupabase from "../composables/useSupabase";
+import HeroSection from "@/components/HeroSection.vue";
 
 const {
   imageUrl,
