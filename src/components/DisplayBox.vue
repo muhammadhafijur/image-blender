@@ -58,7 +58,7 @@
       </div>
       <button
         @click="copyCode"
-        class="shadow active:translate-y-px duration-200 text-sm font-semibold transition ease-out bg-white dark:bg-zinc-800 dark:text-emerald-500 group text-slate-700 justify-center px-3 py-1 rounded-md flex items-center gap-2 relative"
+        class="shadow active:translate-y-px duration-200 text-sm font-semibold transition ease-out bg-white dark:bg-zinc-800 dark:text-emerald-500 group text-slate-700 justify-center px-1 py-1 rounded-md flex items-center gap-2 relative"
       >
         <div
           v-if="showCopyTooltip"
@@ -69,7 +69,7 @@
           ></div>
           <p class="text-[10px] px-2 py-0.5">Copied</p>
         </div>
-
+        
         <svg
           class="h-8 w-8 stroke-slate-700 dark:stroke-emerald-400 dark:group-hover:stroke-emerald-500 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-800"
           fill="none"
@@ -124,8 +124,7 @@
             ></path>
           </g>
         </svg>
-
-        Copy
+        <p class="pe-2">Copy</p>
       </button>
       <div
         class="p-1 bg-slate-100 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] grid grid-cols-3 justify-items-center rounded-lg relative group"
