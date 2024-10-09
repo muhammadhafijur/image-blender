@@ -104,7 +104,6 @@
             stroke-linejoin="round"
           ></path>
           <g class="opacity-0"
-          :class="{ 'opacity-100': showCopyTooltip }"
           >
             <path
               d="M15.9975 5.99988L15.9975 3.99988"
