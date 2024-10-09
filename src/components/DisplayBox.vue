@@ -103,8 +103,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           ></path>
-          <g class="opacity-0"
-          >
+          <g class="opacity-0">
             <path
               d="M15.9975 5.99988L15.9975 3.99988"
               stroke-width="1.5"
@@ -125,7 +124,7 @@
             ></path>
           </g>
         </svg>
-        <p class="pe-[0.45rem]">Copy</p>
+        <p class="pe-[0.44rem]">Copy</p>
       </button>
       <div
         class="p-1 bg-slate-100 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] grid grid-cols-3 justify-items-center rounded-lg relative group"
