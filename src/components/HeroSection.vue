@@ -9,7 +9,7 @@
       >
         <div class="px-4">
           <h1
-            class="bg-gradient-to-r font-inter from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text  text-xl font-extrabold text-transparent md:text-2xl text-start lg:text-3xl"
+            class="bg-gradient-to-r font-inter from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text text-xl font-extrabold text-transparent md:text-2xl text-start lg:text-3xl"
           >
             Transform Your Images <br />
             with Powerful Effects.
@@ -22,8 +22,9 @@
               class="py-1 bg-white/90 px-4 text-start text-sm text-slate-500 dark:text-gray-300 dark:bg-slate-900 rounded-full"
             >
               Over
-              <span class="text-emerald-500 dark:text-gray-100 font-semibold ">{{
-                downloadCount - 1 }}</span>
+              <span class="text-emerald-500 dark:text-gray-100 font-semibold">{{
+                downloadCount - 1
+              }}</span>
               images downloaded so far!
             </p>
           </div>
