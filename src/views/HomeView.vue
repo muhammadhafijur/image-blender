@@ -122,20 +122,7 @@
   </button>
   <TheHeader />
   <HeroSection />
-  <section
-    id="editor"
-    class="pt-12 px-4 sm:px-6 md:px-8 flex justify-center font-inter dark:bg-custom-dark-400"
-  >
-    <p
-      class="border px-4 py-1 w-auto text-center text-sm text-slate-500 dark:text-gray-300 dark:bg-slate-900 dark:border-emerald-500 rounded-full"
-    >
-      Over
-      <span class="text-emerald-500 dark:text-gray-100 font-semibold">{{
-        downloadCount
-      }}</span>
-      images downloaded so far!
-    </p>
-  </section>
+  <TheImageFinder />
 
   <main class="font-inter bg-white min-h-[calc(100vh-68px)] flex flex-col">
     <section class="w-full grow h-full bg-white dark:bg-custom-dark-400 py-12">
@@ -144,7 +131,6 @@
       >
         <DisplayBox />
         <ImageControls />
-        <TheImageFinder />
       </div>
     </section>
 
@@ -158,19 +144,19 @@
 // import "prismjs/themes/prism.css";
 import BlenderShowcase from "@/components/BlenderShowcase.vue";
 import DisplayBox from "@/components/DisplayBox.vue";
+import HeroSection from "@/components/HeroSection.vue";
 import ImageControls from "@/components/ImageControls.vue";
 import UniquePresets from "@/components/UniquePresets.vue";
 import UserTestimonials from "@/components/UserTestimonials.vue";
-import { onMounted, ref } from "vue";
-import TheFooter from "../components/TheFooter.vue";
-import TheHeader from "../components/TheHeader.vue";
-import TheImageFinder from "../components/TheImageFinder.vue";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
 import "prismjs/themes/prism-tomorrow.css";
+import { ref } from "vue";
+import TheFooter from "../components/TheFooter.vue";
+import TheHeader from "../components/TheHeader.vue";
+import TheImageFinder from "../components/TheImageFinder.vue";
 import useImageControls from "../composables/useImageControls";
 import useSupabase from "../composables/useSupabase";
-import HeroSection from "@/components/HeroSection.vue";
 
 const {
   imageUrl,
@@ -187,12 +173,10 @@ const {
   toGradient,
 } = useImageControls();
 
-const { downloadCount, session, signInWithGoogle, fetchDownloadCount } =
+const { session, signInWithGoogle } =
   useSupabase();
 
-onMounted(() => {
-  fetchDownloadCount();
-});
+
 
 const showPopupFeedback = ref(false);
 
