@@ -121,21 +121,8 @@
     </svg>
   </button>
   <TheHeader />
+  <HeroSection />
   <TheImageFinder />
-
-  <section
-    class="pt-12 px-4 sm:px-6 md:px-8 flex justify-center font-inter dark:bg-custom-dark-400"
-  >
-    <p
-      class="border px-4 py-1 w-auto text-center text-sm text-slate-500 dark:text-gray-300 dark:bg-slate-900 dark:border-emerald-500 rounded-full"
-    >
-      Over
-      <span class="text-emerald-500 dark:text-gray-100 font-semibold">{{
-        downloadCount
-      }}</span>
-      images downloaded so far!
-    </p>
-  </section>
 
   <main class="font-inter bg-white min-h-[calc(100vh-68px)] flex flex-col">
     <section class="w-full grow h-full bg-white dark:bg-custom-dark-400 py-12">
@@ -157,49 +144,48 @@
 // import "prismjs/themes/prism.css";
 import BlenderShowcase from "@/components/BlenderShowcase.vue";
 import DisplayBox from "@/components/DisplayBox.vue";
+import HeroSection from "@/components/HeroSection.vue";
 import ImageControls from "@/components/ImageControls.vue";
 import UniquePresets from "@/components/UniquePresets.vue";
 import UserTestimonials from "@/components/UserTestimonials.vue";
-import { onMounted, ref } from "vue";
-import TheFooter from "../components/TheFooter.vue";
-import TheHeader from "../components/TheHeader.vue";
-import TheImageFinder from "../components/TheImageFinder.vue";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
 import "prismjs/themes/prism-tomorrow.css";
+import { ref } from "vue";
+import TheFooter from "../components/TheFooter.vue";
+import TheHeader from "../components/TheHeader.vue";
+import TheImageFinder from "../components/TheImageFinder.vue";
 import useImageControls from "../composables/useImageControls";
 import useSupabase from "../composables/useSupabase";
 
 const {
-	imageUrl,
-	aspectRatio,
-	showPreview,
-	viewCode,
-	handleViewCode,
-	bgLayerOpacity,
-	bgLayerColor,
-	mixBlendValue,
-	selectedGradientDirection,
-	fromGradient,
-	viaGradient,
-	toGradient,
+  imageUrl,
+  aspectRatio,
+  showPreview,
+  viewCode,
+  handleViewCode,
+  bgLayerOpacity,
+  bgLayerColor,
+  mixBlendValue,
+  selectedGradientDirection,
+  fromGradient,
+  viaGradient,
+  toGradient,
 } = useImageControls();
 
-const { downloadCount, session, signInWithGoogle, fetchDownloadCount } =
-	useSupabase();
+const { session, signInWithGoogle } =
+  useSupabase();
 
-onMounted(() => {
-	fetchDownloadCount();
-});
+
 
 const showPopupFeedback = ref(false);
 
 const handlePopupFeedback = () => {
-	showPopupFeedback.value = !showPopupFeedback.value;
+  showPopupFeedback.value = !showPopupFeedback.value;
 };
 
 setTimeout(() => {
-	showPopupFeedback.value = true;
+  showPopupFeedback.value = true;
 }, 5000);
 
 // https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480
@@ -207,32 +193,32 @@ setTimeout(() => {
 const isFullScreen = ref(false);
 
 const toggleFullScreen = () => {
-	if (!isFullScreen.value) {
-		enterFullScreen();
-	} else {
-		exitFullScreen();
-	}
+  if (!isFullScreen.value) {
+    enterFullScreen();
+  } else {
+    exitFullScreen();
+  }
 };
 
 const enterFullScreen = () => {
-	const element = document.documentElement; // FULL PAGE
+  const element = document.documentElement; // FULL PAGE
 
-	if (element.requestFullscreen) {
-		element.requestFullscreen();
-	} else {
-		console.warn("Fullscreen api is not supported.");
-	}
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else {
+    console.warn("Fullscreen api is not supported.");
+  }
 
-	isFullScreen.value = true;
+  isFullScreen.value = true;
 };
 
 const exitFullScreen = () => {
-	if (document.exitFullscreen) {
-		document.exitFullscreen();
-	} else {
-		console.warn("Fullscreen api is not supported.");
-	}
-	isFullScreen.value = false;
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else {
+    console.warn("Fullscreen api is not supported.");
+  }
+  isFullScreen.value = false;
 };
 </script>
 
