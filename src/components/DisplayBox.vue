@@ -294,7 +294,7 @@
 
         <div
           v-if="isExternalImageSource"
-          class="mt-6 flex items-start border p-4 bg-yellow-50 border-yellow-500 rounded-lg gap-3"
+          class="mt-6 flex items-start border p-4 bg-indigo-50 dark:bg-indigo-950 border-indigo-500 rounded-lg gap-3"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -304,20 +304,20 @@
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="size-6 shrink-0 text-yellow-500"
+            class="size-6 shrink-0 text-indigo-500 dark:text-indigo-400"
           >
             <circle cx="12" cy="12" r="10" />
             <path d="M12 16v-4" />
             <path d="M12 8h.01" />
           </svg>
-          <p class="text-sm md:text-base text-yellow-600">
+          <p class="text-sm md:text-base text-indigo-600 dark:text-indigo-300">
             Unfortunately, images from external links cannot be downloaded due
             to security restrictions. To customize and download your image,
             please upload the image directly from your device.
           </p>
           <button
             @click="isExternalImageSource = false"
-            class="w-8 h-8 shrink-0 rounded-md bg-gray-200 grid place-items-center"
+            class="w-8 h-8 shrink-0 rounded-md bg-indigo-200 dark:bg-indigo-700 grid place-items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +329,7 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="size-6"
+              class="size-6 text-indigo-600 dark:text-indigo-300"
             >
               <path d="M18 6 6 18" />
               <path d="m6 6 12 12" />
@@ -353,30 +353,30 @@ import useCanvasImageEditor from "../composables/useCanvasImageEditor";
 import useImageControls from "../composables/useImageControls";
 
 const {
-  downloadCount,
-  session,
-  signInWithGoogle,
-  signOut,
-  incrementDownloadCount,
-  isExternalImageSource,
+	downloadCount,
+	session,
+	signInWithGoogle,
+	signOut,
+	incrementDownloadCount,
+	isExternalImageSource,
 } = useSupabase();
 
 const { myCanvas, drawImage, downloadImage, loading } = useCanvasImageEditor();
 
 const {
-  imageUrl,
-  aspectRatio,
-  showPreview,
-  viewCode,
-  handleViewCode,
-  bgLayerOpacity,
-  bgLayerColor,
-  mixBlendValue,
-  selectedGradientDirection,
-  fromGradient,
-  viaGradient,
-  toGradient,
-  showGradientDropdown,
+	imageUrl,
+	aspectRatio,
+	showPreview,
+	viewCode,
+	handleViewCode,
+	bgLayerOpacity,
+	bgLayerColor,
+	mixBlendValue,
+	selectedGradientDirection,
+	fromGradient,
+	viaGradient,
+	toGradient,
+	showGradientDropdown,
 } = useImageControls();
 
 const showCopyTooltip = ref(false);
@@ -387,70 +387,70 @@ const imageFile = ref(null);
 // }, 2000)
 
 const toggleViewMode = async (mode: string) => {
-  if (mode === "preview") {
-    showPreview.value = true;
-  } else {
-    await handleViewCode();
-    showPreview.value = false;
-    await nextTick();
-    Prism.highlightAll();
-  }
+	if (mode === "preview") {
+		showPreview.value = true;
+	} else {
+		await handleViewCode();
+		showPreview.value = false;
+		await nextTick();
+		Prism.highlightAll();
+	}
 };
 
 const copyCode = () => {
-  console.log("hello");
+	console.log("hello");
 
-  const updatedHtml = `
+	const updatedHtml = `
 <div class="relative h-full w-full aspect-${aspectRatio.value}">
   <div class="absolute h-full w-full ${
-    selectedGradientDirection.value
-      ? `${selectedGradientDirection.value} ${
-          fromGradient.value ? `from-[${fromGradient.value}] ` : ""
-        }${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
-          toGradient.value ? `to-[${toGradient.value}] ` : ""
-        }`
-      : `bg-[${bgLayerColor.value}]`
-  } opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
+		selectedGradientDirection.value
+			? `${selectedGradientDirection.value} ${
+					fromGradient.value ? `from-[${fromGradient.value}] ` : ""
+				}${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
+					toGradient.value ? `to-[${toGradient.value}] ` : ""
+				}`
+			: `bg-[${bgLayerColor.value}]`
+	} opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
   <img src="${imageUrl.value}" alt="" class="h-full w-full object-cover" />
 </div>
 `;
 
-  console.log("Updated HTML:", updatedHtml);
+	console.log("Updated HTML:", updatedHtml);
 
-  // Copy updated html
-  navigator.clipboard
-    .writeText(updatedHtml)
-    .then(() => {
-      showCopyTooltip.value = true;
-      setTimeout(() => {
-        showCopyTooltip.value = false;
-      }, 2000);
-    })
-    .catch((err) => {
-      console.error("Failed to copy:", err);
-    });
+	// Copy updated html
+	navigator.clipboard
+		.writeText(updatedHtml)
+		.then(() => {
+			showCopyTooltip.value = true;
+			setTimeout(() => {
+				showCopyTooltip.value = false;
+			}, 2000);
+		})
+		.catch((err) => {
+			console.error("Failed to copy:", err);
+		});
 };
 
 watch(isExternalImageSource, () => {
-  if (isExternalImageSource.value) {
-    setTimeout(() => {
-      isExternalImageSource.value = false;
-    }, 8000);
-  }
+	if (isExternalImageSource.value) {
+		setTimeout(() => {
+			isExternalImageSource.value = false;
+		}, 8000);
+	}
 });
 
 onMounted(() => {
-  Prism.highlightAll();
+	Prism.highlightAll();
 });
 
 const handleAspectRatio = (aspect: string) => {
-  if (aspect === "square") {
-    aspectRatio.value = "square";
-  } else if (aspect === "video") {
-    aspectRatio.value = "video";
-  } else {
-    aspectRatio.value = "auto";
-  }
+	if (aspect === "square") {
+		aspectRatio.value = "square";
+	} else if (aspect === "video") {
+		aspectRatio.value = "video";
+	} else {
+		aspectRatio.value = "auto";
+	}
 };
 </script>
 
