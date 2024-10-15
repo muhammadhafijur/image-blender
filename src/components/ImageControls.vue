@@ -2,10 +2,10 @@
   <div class="">
     <div class="w-full grid grid-cols-2 lg:grid-cols-3 gap-2">
       <button
-        class="capitalize transition text-sm font-medium border rounded-md p-2 text-gray-700 bg-slate-500 hover:bg-slate-100
-            dark:border-gray-400 dark:text-gray-200 dark:hover:bg-slate-500"
+        class="capitalize transition duration-300 ease-out text-sm font-medium border rounded-md p-2 text-gray-700 hover:bg-slate-100
+            dark:border-gray-400 dark:text-gray-200 dark:hover:bg-zinc-800"
         :class="[
-          mixBlendValue === item ? '!bg-green-500 dark:!bg-indigo-500 border-green-500 dark:border-indigo-500 text-white' : 'bg-white dark:bg-custom-dark-400',
+          mixBlendValue === item ? 'bg-green-500 hover:bg-green-500 dark:bg-indigo-500 border-green-500 dark:border-indigo-500 dark:hover:bg-indigo-500 text-white' : 'bg-white dark:bg-custom-dark-400',
         ]"
         v-for="item in mixBlendProperties"
         :key="item"
