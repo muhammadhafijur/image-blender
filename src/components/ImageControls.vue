@@ -536,7 +536,9 @@ onClickOutside(gradientDropdownTarget, () => {
 
 <style scoped>
 .dot-animation1 {
+  opacity: 0;
   animation: sparklesAnimation 2s ease-out forwards;
+  animation-delay: 3s;
   will-change: transform;
   transform: translate(-50%, -50%);
 }
@@ -544,36 +546,38 @@ onClickOutside(gradientDropdownTarget, () => {
 .star1 {
   opacity: 0;
   animation: fadeStar 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 .star2 {
   opacity: 0;
   animation: fadeStar2 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 
 .star3 {
   opacity: 0;
   animation: fadeStar3 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 
 .star4 {
   opacity: 0;
   animation: fadeStar4 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 
 @keyframes sparklesAnimation {
   0% {
+    opacity: 1;
     transform: translate(-50%, -50%) translate(0px, -100vh) scale(4)
       rotate(-360deg);
   }
   100% {
+    opacity: 1;
     transform: translate(-50%, -50%) translate(0) scale(0) rotate(0);
   }
 }

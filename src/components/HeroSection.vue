@@ -15,7 +15,6 @@
             with Powerful Effects.
           </h1>
           <div
-            id="editor"
             class="mt-2 md:mt-4 flex justify-start font-inter "
           >
             <p
