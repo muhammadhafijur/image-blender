@@ -8,7 +8,7 @@
           @click="toggleViewMode('preview')"
           :class="{
             'bg-white dark:bg-custom-dark-400 shadow text-slate-800 dark:text-gray-100':
-              showPreview,
+              showPreview
           }"
           class="px-3 group py-1.5 rounded-md text-slate-500 text-sm font-semibold justify-center grow flex items-center gap-2"
         >
@@ -34,7 +34,7 @@
           @click="toggleViewMode('code')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              !showPreview,
+              !showPreview
           }"
           class="text-slate-500 justify-center px-3 py-1.5 text-sm font-semibold rounded-md flex items-center gap-2"
         >
@@ -58,7 +58,7 @@
       </div>
       <button
         @click="copyCode"
-        class="shadow active:translate-y-px duration-200 text-sm font-semibold  transition ease-out bg-white dark:bg-zinc-800 dark:text-emerald-500 group text-slate-700 justify-center px-1 py-1 rounded-md flex items-center gap-2 relative"
+        class="shadow active:translate-y-px duration-200 text-sm font-semibold transition ease-out bg-white dark:bg-zinc-800 dark:text-emerald-500 group text-slate-700 justify-center px-1 py-1 rounded-md flex items-center gap-2 relative"
       >
         <div
           v-if="showCopyTooltip"
@@ -69,7 +69,7 @@
           ></div>
           <p class="text-[10px] px-2 py-0.5">Copied</p>
         </div>
-        
+
         <svg
           class="h-8 w-8 stroke-slate-700 dark:stroke-emerald-400 dark:group-hover:stroke-emerald-500 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-800"
           fill="none"
@@ -138,7 +138,7 @@
           @click="handleAspectRatio('square')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              aspectRatio === 'square',
+              aspectRatio === 'square'
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -160,7 +160,7 @@
           @click="handleAspectRatio('video')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              aspectRatio === 'video',
+              aspectRatio === 'video'
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -182,7 +182,7 @@
           @click="handleAspectRatio('auto')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              aspectRatio === 'auto',
+              aspectRatio === 'auto'
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -213,7 +213,7 @@
             ? 'aspect-square'
             : aspectRatio === 'video'
               ? 'aspect-video'
-              : 'aspect-auto',
+              : 'aspect-auto'
         ]"
       >
         <div
@@ -293,9 +293,9 @@
         </button>
 
         <div
-          v-if="isExternalImageSource"
-          class="mt-6 flex items-start border p-4 bg-indigo-50 dark:bg-indigo-950 border-indigo-500 rounded-lg gap-3"
-        >
+            v-if="isExternalImageSource"
+            class="mt-6 flex items-start border p-4 bg-yellow-50 dark:bg-yellow-900 border-yellow-500 rounded-lg gap-3"
+          >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -304,20 +304,20 @@
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="size-6 shrink-0 text-indigo-500 dark:text-indigo-400"
+            class="size-6 shrink-0 text-yellow-500 dark:text-yellow-400"
           >
             <circle cx="12" cy="12" r="10" />
             <path d="M12 16v-4" />
             <path d="M12 8h.01" />
           </svg>
-          <p class="text-sm md:text-base text-indigo-600 dark:text-indigo-300">
+          <p class="text-sm md:text-base text-yellow-600 dark:text-yellow-300">
             Unfortunately, images from external links cannot be downloaded due
             to security restrictions. To customize and download your image,
             please upload the image directly from your device.
           </p>
           <button
             @click="isExternalImageSource = false"
-            class="w-8 h-8 shrink-0 rounded-md bg-indigo-200 dark:bg-indigo-700 grid place-items-center"
+            class="w-8 h-8 shrink-0 rounded-full bg-yellow-200 dark:bg-yellow-700 grid place-items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +329,7 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="size-6 text-indigo-600 dark:text-indigo-300"
+              class="size-4 text-yellow-600 dark:text-yellow-300"
             >
               <path d="M18 6 6 18" />
               <path d="m6 6 12 12" />
