@@ -1,5 +1,6 @@
 <template>
   <div
+    id="editor"
     class="w-full bg-white/80 dark:bg-custom-dark-400/[98%] backdrop-blur-lg font-inter transition-colors duration-200 sticky top-0 z-10 shadow-[0_1px_3px_rgba(15,23,42,0.08)]"
   >
     <div

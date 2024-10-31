@@ -2,9 +2,10 @@
   <div class="">
     <div class="w-full grid grid-cols-2 lg:grid-cols-3 gap-2">
       <button
-        class="capitalize text-sm font-medium border dark:border-gray-400 rounded-md p-2 text-gray-700 dark:text-gray-200"
+        class="capitalize transition duration-300 ease-out text-sm font-medium border rounded-md p-2 text-gray-700 
+            dark:border-gray-400 dark:text-gray-200 "
         :class="[
-          mixBlendValue === item ? 'bg-green-500 dark:bg-indigo-500 border-green-500 dark:border-indigo-500 text-white' : 'bg-white dark:bg-custom-dark-400',
+          mixBlendValue === item ? 'bg-green-500 dark:bg-indigo-500 border-green-500 dark:border-indigo-500 text-white ' : ' bg-white hover:bg-slate-100  dark:bg-custom-dark-400 dark:hover:bg-zinc-800',
         ]"
         v-for="item in mixBlendProperties"
         :key="item"
@@ -14,7 +15,7 @@
       </button>
     </div>
     <div class="mt-4 w-full rounded-2xl gap-4">
-      <div class="">
+      <div class="">  
         <div class="flex gap-2">
           <input
             @click="
@@ -535,7 +536,9 @@ onClickOutside(gradientDropdownTarget, () => {
 
 <style scoped>
 .dot-animation1 {
+  opacity: 0;
   animation: sparklesAnimation 2s ease-out forwards;
+  animation-delay: 3s;
   will-change: transform;
   transform: translate(-50%, -50%);
 }
@@ -543,36 +546,38 @@ onClickOutside(gradientDropdownTarget, () => {
 .star1 {
   opacity: 0;
   animation: fadeStar 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 .star2 {
   opacity: 0;
   animation: fadeStar2 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 
 .star3 {
   opacity: 0;
   animation: fadeStar3 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 
 .star4 {
   opacity: 0;
   animation: fadeStar4 1s ease-in-out forwards;
-  animation-delay: 1.55s;
+  animation-delay: 4.55s;
   will-change: transform;
 }
 
 @keyframes sparklesAnimation {
   0% {
+    opacity: 1;
     transform: translate(-50%, -50%) translate(0px, -100vh) scale(4)
       rotate(-360deg);
   }
   100% {
+    opacity: 1;
     transform: translate(-50%, -50%) translate(0) scale(0) rotate(0);
   }
 }
