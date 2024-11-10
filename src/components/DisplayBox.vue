@@ -8,7 +8,7 @@
           @click="toggleViewMode('preview')"
           :class="{
             'bg-white dark:bg-custom-dark-400 shadow text-slate-800 dark:text-gray-100':
-              showPreview,
+              showPreview
           }"
           class="px-3 group py-1.5 rounded-md text-slate-500 text-sm font-semibold justify-center grow flex items-center gap-2"
         >
@@ -34,7 +34,7 @@
           @click="toggleViewMode('code')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              !showPreview,
+              !showPreview
           }"
           class="text-slate-500 justify-center px-3 py-1.5 text-sm font-semibold rounded-md flex items-center gap-2"
         >
@@ -58,7 +58,7 @@
       </div>
       <button
         @click="copyCode"
-        class="shadow active:translate-y-px duration-200 text-sm font-semibold  transition ease-out bg-white dark:bg-zinc-800 dark:text-emerald-500 group text-slate-700 justify-center px-1 py-1 rounded-md flex items-center gap-2 relative"
+        class="shadow active:translate-y-px duration-200 text-sm font-semibold transition ease-out bg-white dark:bg-zinc-800 dark:text-emerald-500 group text-slate-700 justify-center px-1 py-1 rounded-md flex items-center gap-2 relative"
       >
         <div
           v-if="showCopyTooltip"
@@ -69,7 +69,7 @@
           ></div>
           <p class="text-[10px] px-2 py-0.5">Copied</p>
         </div>
-        
+
         <svg
           class="h-8 w-8 stroke-slate-700 dark:stroke-emerald-400 dark:group-hover:stroke-emerald-500 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-800"
           fill="none"
@@ -138,7 +138,7 @@
           @click="handleAspectRatio('square')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              aspectRatio === 'square',
+              aspectRatio === 'square'
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -160,7 +160,7 @@
           @click="handleAspectRatio('video')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              aspectRatio === 'video',
+              aspectRatio === 'video'
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -182,7 +182,7 @@
           @click="handleAspectRatio('auto')"
           :class="{
             'bg-white dark:bg-custom-dark-400 dark:text-gray-100 shadow text-slate-800':
-              aspectRatio === 'auto',
+              aspectRatio === 'auto'
           }"
           class="px-3 py-1.5 rounded-md text-slate-700 w-full md:w-auto flex justify-center md:flex-none"
         >
@@ -213,7 +213,7 @@
             ? 'aspect-square'
             : aspectRatio === 'video'
               ? 'aspect-video'
-              : 'aspect-auto',
+              : 'aspect-auto'
         ]"
       >
         <div
@@ -293,9 +293,9 @@
         </button>
 
         <div
-          v-if="isExternalImageSource"
-          class="mt-6 flex items-start border p-4 bg-yellow-50 border-yellow-500 rounded-lg gap-3"
-        >
+            v-if="isExternalImageSource"
+            class="mt-6 flex items-start border p-4 bg-yellow-50 dark:bg-yellow-900 border-yellow-500 rounded-lg gap-3"
+          >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -304,20 +304,20 @@
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="size-6 shrink-0 text-yellow-500"
+            class="size-6 shrink-0 text-yellow-500 dark:text-yellow-400"
           >
             <circle cx="12" cy="12" r="10" />
             <path d="M12 16v-4" />
             <path d="M12 8h.01" />
           </svg>
-          <p class="text-sm md:text-base text-yellow-600">
+          <p class="text-sm md:text-base text-yellow-600 dark:text-yellow-300">
             Unfortunately, images from external links cannot be downloaded due
             to security restrictions. To customize and download your image,
             please upload the image directly from your device.
           </p>
           <button
             @click="isExternalImageSource = false"
-            class="w-8 h-8 shrink-0 rounded-md bg-gray-200 grid place-items-center"
+            class="w-8 h-8 shrink-0 rounded-full bg-yellow-200 dark:bg-yellow-700 grid place-items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +329,7 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="size-6"
+              class="size-4 text-yellow-600 dark:text-yellow-300"
             >
               <path d="M18 6 6 18" />
               <path d="m6 6 12 12" />
@@ -353,30 +353,30 @@ import useCanvasImageEditor from "../composables/useCanvasImageEditor";
 import useImageControls from "../composables/useImageControls";
 
 const {
-  downloadCount,
-  session,
-  signInWithGoogle,
-  signOut,
-  incrementDownloadCount,
-  isExternalImageSource,
+	downloadCount,
+	session,
+	signInWithGoogle,
+	signOut,
+	incrementDownloadCount,
+	isExternalImageSource,
 } = useSupabase();
 
 const { myCanvas, drawImage, downloadImage, loading } = useCanvasImageEditor();
 
 const {
-  imageUrl,
-  aspectRatio,
-  showPreview,
-  viewCode,
-  handleViewCode,
-  bgLayerOpacity,
-  bgLayerColor,
-  mixBlendValue,
-  selectedGradientDirection,
-  fromGradient,
-  viaGradient,
-  toGradient,
-  showGradientDropdown,
+	imageUrl,
+	aspectRatio,
+	showPreview,
+	viewCode,
+	handleViewCode,
+	bgLayerOpacity,
+	bgLayerColor,
+	mixBlendValue,
+	selectedGradientDirection,
+	fromGradient,
+	viaGradient,
+	toGradient,
+	showGradientDropdown,
 } = useImageControls();
 
 const showCopyTooltip = ref(false);
@@ -387,70 +387,70 @@ const imageFile = ref(null);
 // }, 2000)
 
 const toggleViewMode = async (mode: string) => {
-  if (mode === "preview") {
-    showPreview.value = true;
-  } else {
-    await handleViewCode();
-    showPreview.value = false;
-    await nextTick();
-    Prism.highlightAll();
-  }
+	if (mode === "preview") {
+		showPreview.value = true;
+	} else {
+		await handleViewCode();
+		showPreview.value = false;
+		await nextTick();
+		Prism.highlightAll();
+	}
 };
 
 const copyCode = () => {
-  console.log("hello");
+	console.log("hello");
 
-  const updatedHtml = `
+	const updatedHtml = `
 <div class="relative h-full w-full aspect-${aspectRatio.value}">
   <div class="absolute h-full w-full ${
-    selectedGradientDirection.value
-      ? `${selectedGradientDirection.value} ${
-          fromGradient.value ? `from-[${fromGradient.value}] ` : ""
-        }${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
-          toGradient.value ? `to-[${toGradient.value}] ` : ""
-        }`
-      : `bg-[${bgLayerColor.value}]`
-  } opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
+		selectedGradientDirection.value
+			? `${selectedGradientDirection.value} ${
+					fromGradient.value ? `from-[${fromGradient.value}] ` : ""
+				}${viaGradient.value ? `via-[${viaGradient.value}] ` : ""}${
+					toGradient.value ? `to-[${toGradient.value}] ` : ""
+				}`
+			: `bg-[${bgLayerColor.value}]`
+	} opacity-[${bgLayerOpacity.value}%] mix-blend-${mixBlendValue.value}"></div>
   <img src="${imageUrl.value}" alt="" class="h-full w-full object-cover" />
 </div>
 `;
 
-  console.log("Updated HTML:", updatedHtml);
+	console.log("Updated HTML:", updatedHtml);
 
-  // Copy updated html
-  navigator.clipboard
-    .writeText(updatedHtml)
-    .then(() => {
-      showCopyTooltip.value = true;
-      setTimeout(() => {
-        showCopyTooltip.value = false;
-      }, 2000);
-    })
-    .catch((err) => {
-      console.error("Failed to copy:", err);
-    });
+	// Copy updated html
+	navigator.clipboard
+		.writeText(updatedHtml)
+		.then(() => {
+			showCopyTooltip.value = true;
+			setTimeout(() => {
+				showCopyTooltip.value = false;
+			}, 2000);
+		})
+		.catch((err) => {
+			console.error("Failed to copy:", err);
+		});
 };
 
 watch(isExternalImageSource, () => {
-  if (isExternalImageSource.value) {
-    setTimeout(() => {
-      isExternalImageSource.value = false;
-    }, 8000);
-  }
+	if (isExternalImageSource.value) {
+		setTimeout(() => {
+			isExternalImageSource.value = false;
+		}, 8000);
+	}
 });
 
 onMounted(() => {
-  Prism.highlightAll();
+	Prism.highlightAll();
 });
 
 const handleAspectRatio = (aspect: string) => {
-  if (aspect === "square") {
-    aspectRatio.value = "square";
-  } else if (aspect === "video") {
-    aspectRatio.value = "video";
-  } else {
-    aspectRatio.value = "auto";
-  }
+	if (aspect === "square") {
+		aspectRatio.value = "square";
+	} else if (aspect === "video") {
+		aspectRatio.value = "video";
+	} else {
+		aspectRatio.value = "auto";
+	}
 };
 </script>
 
