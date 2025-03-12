@@ -11,7 +11,7 @@
       class="mx-auto flex w-full items-center gap-4 px-4 py-3.5 sm:gap-8"
       :class="$route.path === '/' ? 'max-w-screen-xl  sm:px-6 lg:px-8' : ''"
     >
-      <router-link
+      <RouterLink
         to="/"
         class="block font-madimi text-xl font-bold tracking-wider text-[#1F2937] sm:text-2xl"
       >
@@ -24,7 +24,7 @@
           class="bg-gradient-to-r from-blue-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text text-transparent"
           >Blender</span
         >
-      </router-link>
+      </RouterLink>
 
       <div class="flex flex-1 items-center justify-end">
         <div class="flex items-center gap-4">
@@ -177,6 +177,7 @@ import useImageControls from "@/composables/useImageControls";
 import type { Session } from "@supabase/supabase-js";
 import { onClickOutside } from "@vueuse/core";
 import { onMounted, ref } from "vue";
+import { RouterLink } from "vue-router";
 import useSupabase from "../composables/useSupabase";
 import supabase from "../lib/supabaseClient";
 

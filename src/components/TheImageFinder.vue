@@ -28,7 +28,7 @@
       <input
         id="imageUrl"
         type="text"
-        class="w-full bg-transparent py-4 lg:py-6 text-base font-normal text-gray-200 caret-emerald-500 focus:outline-none dark:text-gray-100"
+        class="w-full bg-transparent py-4 md:py-6 text-base font-normal text-gray-200 caret-emerald-500 focus:outline-none dark:text-gray-100"
         v-model="imageUrl"
       />
       <div class="flex items-center gap-4">

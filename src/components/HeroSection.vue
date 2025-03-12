@@ -65,13 +65,13 @@
       <button
         class="h-16 w-16 md:h-28 md:w-28 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-white dark:bg-zinc-950 grid place-items-center rounded-full"
       >
-        <router-link to="/editor"
+        <RouterLink to="/editor"
           href="#editor"
           class="h-14 w-14 md:h-24 md:w-24 rounded-full bg-indigo-500 dark:bg-emerald-500 flex items-center justify-center text-[10px] md:text-base font-semibold hover:bg-indigo-600 transition-colors duration-300 text-white text-center"
         >
           Start <br />
           Blending
-        </router-link>
+        </RouterLink>
       </button>
     </div>
   </div>
@@ -80,6 +80,7 @@
 <script setup lang="ts">
 import useSupabase from "@/composables/useSupabase";
 import { onMounted } from "vue";
+import { RouterLink } from "vue-router";
 
 const { downloadCount, fetchDownloadCount } = useSupabase();
 
