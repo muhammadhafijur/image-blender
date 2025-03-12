@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="flex h-auto w-full shrink-0 gap-x-4 gap-y-4 overflow-auto bg-[#131412] lg:justify-between lg:gap-x-0 md:rounded-xl md:p-2 lg:h-full lg:w-16 lg:flex-col"
+    class="flex h-auto w-full shrink-0 gap-x-4 gap-y-4 overflow-auto  bg-[#131412] lg:justify-between lg:gap-x-0 md:rounded-xl md:p-2 lg:h-full lg:w-16 lg:flex-col [&::-webkit-scrollbar-thumb] hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-xl [&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-track]:hidden [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar]:h-1.5"
   >
     <!-- Top Section -->
     <div
