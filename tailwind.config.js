@@ -15,6 +15,10 @@ export default {
       },
       colors: {
         "custom-dark-400": "#090716",
+        "custom-dark-600": "#131412",
+        "custom-dark-800": "#14161A",
+        "custom-white-100": "#FCFCFC",
+        
       },
       keyframes: {
         ripple: {

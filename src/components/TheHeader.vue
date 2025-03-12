@@ -1,17 +1,23 @@
 <template>
   <header
-    class="bg-white dark:bg-custom-dark-400 border-b dark:border-gray-700"
+    class=""
+    :class="
+      $route.path === '/'
+        ? 'border-b bg-white dark:bg-custom-dark-400 dark:border-gray-700'
+        : 'bg-zinc-950'
+    "
   >
     <div
-      class="mx-auto flex max-w-screen-xl items-center gap-4 sm:gap-8 px-4 py-3.5 sm:px-6 lg:px-8"
+      class="mx-auto flex w-full items-center gap-4 px-4 py-3.5 sm:gap-8"
+      :class="$route.path === '/' ? 'max-w-screen-xl  sm:px-6 lg:px-8' : ''"
     >
       <router-link
         to="/"
-        class="text-[#1F2937] block tracking-wider font-madimi text-xl sm:text-2xl font-bold"
+        class="block font-madimi text-xl font-bold tracking-wider text-[#1F2937] sm:text-2xl"
       >
         <span class="sr-only">Home</span>
         <span
-          class="bg-no-repeat bg-clip-text bg-top dark:bg-right-bottom bg-[url('../images/wave.webp')] text-transparent"
+          class="bg-[url('../images/wave.webp')] bg-clip-text bg-top bg-no-repeat text-transparent dark:bg-right-bottom"
           >Image</span
         >
         <span
@@ -26,8 +32,14 @@
             href="https://github.com/muhammadhafijur/image-blender"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-8 h-8 sm:h-10 sm:w-10 grid place-items-center bg-gray-200 dark:bg-gray-100 rounded-md"
-            ><svg
+            class="grid h-8 w-8 place-items-center rounded-md sm:h-10 sm:w-10"
+            :class="
+              $route.path === '/'
+                ? 'bg-gray-200 dark:bg-gray-100'
+                : 'bg-zinc-800 text-gray-100'
+            "
+            >
+            <span><svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
@@ -41,10 +53,12 @@
                 d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
               ></path>
               <path d="M9 18c-4.51 2-5-2-7-2"></path></svg
-            ><span class="sr-only">GitHub</span></a
+            ><span class="sr-only">GitHub</span></span>
+             </a
           ><button
             @click="toggleDarkMode"
-            class="w-8 h-8 sm:h-10 sm:w-10 grid place-items-center bg-gray-200 dark:bg-gray-100 rounded-md"
+            class="grid h-8 w-8 place-items-center rounded-md bg-gray-200 dark:bg-gray-100 sm:h-10 sm:w-10"
+            :class="$route.path === '/' ? 'block' : 'hidden'"
           >
             <svg
               v-if="isDarkMode"
@@ -86,7 +100,7 @@
           <button
             v-if="!session"
             @click="signInWithGoogle"
-            class="px-2 sm:px-4 py-1.5 sm:py-2 bg-slate-900 rounded-md text-white flex items-center gap-1"
+            class="flex items-center gap-1 rounded-md bg-slate-900 px-2 py-1.5 text-white sm:px-4 sm:py-2"
           >
             <svg
               class="size-5 sm:size-5"
@@ -115,13 +129,13 @@
             <span class="sr-only">Sign up</span>
           </button>
 
-          <div v-if="session" class="relative w-10 h-10">
+          <div v-if="session" class="relative h-10 w-10">
             <button
               @click="showProfileDropdown = !showProfileDropdown"
-              class="w-10 h-10 rounded-full overflow-hidden"
+              class="h-10 w-10 overflow-hidden rounded-full"
             >
               <img
-                class="w-full h-full"
+                class="h-full w-full"
                 :src="session.user.user_metadata.avatar_url"
                 alt=""
               />
@@ -131,12 +145,12 @@
             <!-- Dropdown Menu -->
             <div
               v-if="showProfileDropdown && session"
-                ref="dropdownTarget"
-              class="absolute py-1 right-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20"
+              ref="dropdownTarget"
+              class="absolute right-0 z-20 mt-1 w-48 rounded-md border border-gray-200 bg-white py-1 shadow-lg"
             >
               <button
                 @click="signOut"
-                class="block px-4 w-full text-start py-2 text-gray-700 hover:bg-gray-100"
+                class="block w-full px-4 py-2 text-start text-gray-700 hover:bg-gray-100"
               >
                 Log out
               </button>
@@ -192,12 +206,11 @@ onMounted(async () => {
   }
 });
 
-
-const dropdownTarget = ref(null)
+const dropdownTarget = ref(null);
 
 onClickOutside(dropdownTarget, () => {
-  showProfileDropdown.value = false
-})
+  showProfileDropdown.value = false;
+});
 </script>
 
 <style scoped></style>

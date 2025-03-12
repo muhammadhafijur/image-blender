@@ -4,7 +4,7 @@ import supabase from "../lib/supabaseClient";
 import useImageCanvasEditor from "./useCanvasImageEditor";
 import useImageControls from "./useImageControls";
 
-const { myCanvas, downloadImage } = useImageCanvasEditor();
+const { downloadImage } = useImageCanvasEditor();
 const { imageUrl } = useImageControls();
 
 const session = ref<Session | null>(null);
