@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "name": "Aurora Sky",
+      "color": "#FFD700",
+      "direction": "bg-gradient-to-tr",
+      "from": "#F8D800",
+      "via": "#6F76D4",
+      "to": "#18A1D3",
+      "bgLayerColor": "",
+      "bgLayerOpacity": 80,
+      "mixBlendValue": "normal",
+      "author": "CreativeSoul1",
+      "authorUrl": "https://example.com/creative-soul1"
+    },
+    {
+      "id": 2,
+      "name": "Mystic Ocean",
+      "color": "#4F83CC",
+      "direction": "bg-gradient-to-tr",
+      "from": "#4F83CC",
+      "via": "#2E4972",
+      "to": "#1C3B5B",
+      "bgLayerColor": "",
+      "bgLayerOpacity": 90,
+      "mixBlendValue": "overlay",
+      "author": "ColorExplorer",
+      "authorUrl": "https://example.com/color-explorer"
+    },
+    {
+      "id": 3,
+      "name": "Sunset Bliss",
+      "color": "#FF4500",
+      "direction": "bg-gradient-to-tr",
+      "from": "#FF6F00",
+      "via": "#FF8F00",
+      "to": "#FF5722",
+      "bgLayerColor": "",
+      "bgLayerOpacity": 85,
+      "mixBlendValue": "multiply",
+      "author": "SunsetDreamer",
+      "authorUrl": "https://example.com/sunset-dreamer"
+    }
+  ]
+  
+  

@@ -1,11 +1,13 @@
 <template>
-  <div class="">
-    <div class="w-full grid grid-cols-2 lg:grid-cols-3 gap-2">
+  <div class="p-4">
+    <SidebarTitle>APPEARANCE</SidebarTitle>
+    <div class="grid w-full grid-cols-2 gap-2">
       <button
-        class="capitalize transition duration-300 ease-out text-sm font-medium border rounded-md p-2 text-gray-700 
-            dark:border-gray-400 dark:text-gray-200 "
+        class="rounded-md border border-zinc-800 p-2 text-xs font-medium capitalize shadow-lg transition duration-300 ease-out dark:text-gray-200 md:text-sm"
         :class="[
-          mixBlendValue === item ? 'bg-green-500 dark:bg-indigo-500 border-green-500 dark:border-indigo-500 text-white ' : ' bg-white hover:bg-slate-100  dark:bg-custom-dark-400 dark:hover:bg-zinc-800',
+          mixBlendValue === item
+            ? 'border-green-500 bg-green-500 text-white dark:border-indigo-500 dark:bg-indigo-500 '
+            : ' bg-zinc-800 text-gray-300 hover:bg-zinc-900  dark:bg-custom-dark-400 dark:hover:bg-zinc-800',
         ]"
         v-for="item in mixBlendProperties"
         :key="item"
@@ -14,8 +16,8 @@
         {{ item }}
       </button>
     </div>
-    <div class="mt-4 w-full rounded-2xl gap-4">
-      <div class="">  
+    <div class="mt-4 w-full gap-4 rounded-2xl">
+      <div class="">
         <div class="flex gap-2">
           <input
             @click="
@@ -23,7 +25,7 @@
             "
             type="text"
             placeholder="#FFFFFF"
-            class="border dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 p-2 rounded-md w-full"
+            class="w-full rounded-md border border-zinc-700 bg-zinc-800 p-2 text-gray-100 dark:border-gray-100 dark:bg-custom-dark-400 dark:text-gray-200"
             v-model="bgLayerColor"
           />
           <label
@@ -31,14 +33,14 @@
               (selectedGradientDirection = ''), (showGradientDropdown = false)
             "
             for="color-picker"
-            class="grid shrink-0 group cursor-pointer w-10 h-10 relative place-items-center bg-[var(--bgLayerColor)] text-white rounded-md"
+            class="group relative grid h-10 w-10 shrink-0 cursor-pointer place-items-center rounded-md bg-[var(--bgLayerColor)] text-white"
             :style="`--bgLayerColor:${bgLayerColor};`"
           >
             <div
-              class="absolute hidden lg:block inset-0 w-full h-full rounded-full"
+              class="absolute inset-0 hidden h-full w-full rounded-full lg:block"
             >
               <div
-                class="dot-animation1 absolute top-1/2 left-1/2 text-emerald-400 z-20 rounded-full"
+                class="dot-animation1 absolute left-1/2 top-1/2 z-20 rounded-full text-emerald-400"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +72,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="star1 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
+                class="star1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
               >
                 <path
                   d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
@@ -86,7 +88,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="star2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
+                class="star2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
               >
                 <path
                   d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
@@ -102,7 +104,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="star3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
+                class="star3 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
                 green
               >
                 <path
@@ -119,7 +121,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="star4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
+                class="star4 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-green-500"
               >
                 <path
                   d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
@@ -158,7 +160,7 @@
 
         <!-- bg gradient -->
         <div class="group relative mt-4" tabindex="1">
-          <label for="Gradient" class="block text-sm font-medium text-gray-900">
+          <label for="Gradient" class="block text-sm font-medium text-gray-200">
             Gradient
           </label>
 
@@ -168,7 +170,7 @@
               v-model="selectedGradientDirection"
               type="text"
               id="Gradient"
-              class="w-full rounded-lg py-3 border px-2 border-gray-300 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 pe-10  sm:text-sm [&::-webkit-calendar-picker-indicator]:opacity-0"
+              class="w-full rounded-lg border border-zinc-700 bg-zinc-800 px-2 py-3 pe-10 text-gray-100 dark:border-gray-100 dark:bg-custom-dark-400 dark:text-gray-200 sm:text-sm [&::-webkit-calendar-picker-indicator]:opacity-0"
               placeholder="Please select"
             />
 
@@ -193,20 +195,21 @@
           <div
             ref="gradientDropdownTarget"
             v-if="showGradientDropdown"
-            class="px-2 w-full bg-white shadow absolute top-20 py-1 z-10"
+            class="[&::-webkit-scrollbar-thumb] hover:[&::-webkit-scrollbar-thumb]:bg-custom-green-500/70 absolute top-20 z-10 h-52 w-full overflow-y-auto rounded-xl bg-white px-2 py-1 shadow [&::-webkit-scrollbar-thumb]:rounded-xl [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:hidden [&::-webkit-scrollbar]:w-2.5"
           >
             <button
               v-for="gradient in gradientDirections"
+              :key="gradient"
               @click="handleSelectedGradient(gradient)"
-              class="block px-2 py-2 w-full text-start hover:bg-gray-100"
+              class="block w-full px-2 py-2 text-start hover:bg-gray-100"
             >
               {{ gradient }}
             </button>
           </div>
         </div>
-        <div class="mt-4 grid grid-cols-3 gap-3">
+        <div class="mt-4 grid grid-cols-2 gap-3">
           <div class="">
-            <label for="from-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
+            <label for="from-gd" class="text-sm font-medium text-gray-100"
               >From</label
             >
             <div class="mt-1 flex gap-1">
@@ -214,12 +217,12 @@
                 id="from-gd"
                 type="text"
                 placeholder="#FFFFFF"
-                class="border p-2 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 rounded-md w-full"
+                class="w-full rounded-md border border-zinc-700 bg-zinc-800 p-2 text-gray-100 dark:border-gray-100 dark:bg-custom-dark-400 dark:text-gray-200"
                 v-model="fromGradient"
               />
               <label
                 for="from-gradient"
-                class="grid shrink-0 group cursor-pointer w-[42px] h-[42px] relative place-items-center bg-[var(--fromGradient)] text-white rounded-md"
+                class="group relative grid h-[42px] w-[42px] shrink-0 cursor-pointer place-items-center rounded-md bg-[var(--fromGradient)] text-white"
                 :style="`--fromGradient:${fromGradient};`"
               >
                 <svg
@@ -269,7 +272,7 @@
             </div>
           </div>
           <div class="">
-            <label for="via-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
+            <label for="via-gd" class="text-sm font-medium text-gray-100"
               >Via</label
             >
             <div class="mt-1 flex gap-1">
@@ -277,12 +280,12 @@
                 id="via-gd"
                 type="text"
                 placeholder="#FFFFFF"
-                class="border p-2 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 rounded-md w-full"
+                class="w-full rounded-md border border-zinc-700 bg-zinc-800 p-2 text-gray-100 dark:border-gray-100 dark:bg-custom-dark-400 dark:text-gray-200"
                 v-model="viaGradient"
               />
               <label
                 for="via-gradient"
-                class="grid shrink-0 group cursor-pointer w-[42px] h-[42px] relative place-items-center bg-[var(--viaGradient)] text-white rounded-md"
+                class="group relative grid h-[42px] w-[42px] shrink-0 cursor-pointer place-items-center rounded-md bg-[var(--viaGradient)] text-white"
                 :style="`--viaGradient:${viaGradient};`"
               >
                 <svg
@@ -332,7 +335,7 @@
             </div>
           </div>
           <div class="">
-            <label for="to-gd" class="text-sm font-medium text-custombg-custom-dark-400/dark:bg-custom-dark-400"
+            <label for="to-gd" class="text-sm font-medium text-gray-100"
               >To</label
             >
             <div class="mt-1 flex gap-1">
@@ -340,12 +343,12 @@
                 id="to-gd"
                 type="text"
                 placeholder="#FFFFFF"
-                class="border p-2 dark:border-gray-100 dark:bg-custom-dark-400 text-black dark:text-gray-200 rounded-md w-full"
+                class="w-full rounded-md border border-zinc-700 bg-zinc-800 p-2 text-gray-100 dark:border-gray-100 dark:bg-custom-dark-400 dark:text-gray-200"
                 v-model="toGradient"
               />
               <label
                 for="to-gradient"
-                class="grid shrink-0 group cursor-pointer w-[42px] h-[42px] relative place-items-center bg-[var(--toGradient)] text-white rounded-md"
+                class="group relative grid h-[42px] w-[42px] shrink-0 cursor-pointer place-items-center rounded-md bg-[var(--toGradient)] text-white"
                 :style="`--toGradient:${toGradient};`"
               >
                 <svg
@@ -396,10 +399,14 @@
           </div>
         </div>
         <!-- Range Customize Classes GG -->
-        <div class="mt-8 relative">
-          <p class="text-sm text-slate-700 dark:text-gray-100 absolute -top-4 right-0">{{ bgLayerOpacity }}%</p>
+        <div class="relative mt-8">
+          <p
+            class="absolute -top-4 right-0 text-sm text-gray-100 dark:text-gray-100"
+          >
+            {{ bgLayerOpacity }}%
+          </p>
           <input
-            class="h-3.5 w-full bg-gray-200 rounded-full border cursor-pointer appearance-none [&::-webkit-slider-thumb]:h-8 active:[&::-webkit-slider-thumb]:scale-105 duration-300 ease-out [&::-moz-range-thumb]:h-8 [&::-webkit-slider-thumb]:w-8 [&::-moz-range-thumb]:w-8 active:[&::-moz-range-thumb]:scale-105 [&::-webkit-slider-thumb]:rounded-full [&::-moz-range-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-moz-range-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-[#2b2b2b] [&::-moz-range-thumb]:bg-[#2b2b2b] [&::-ms-thumb]:h-8 active:[&::-ms-thumb]:scale-105 [&::-ms-thumb]:w-8 [&::-ms-thumb]:rounded-full [&::-ms-thumb]:bg-[#2b2b2b]"
+            class="h-3.5 w-full cursor-pointer appearance-none rounded-full border bg-gray-200 duration-300 ease-out [&::-moz-range-thumb]:h-8 [&::-moz-range-thumb]:w-8 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-[#2b2b2b] active:[&::-moz-range-thumb]:scale-105 [&::-ms-thumb]:h-8 [&::-ms-thumb]:w-8 [&::-ms-thumb]:rounded-full [&::-ms-thumb]:bg-[#2b2b2b] active:[&::-ms-thumb]:scale-105 [&::-webkit-slider-thumb]:h-8 [&::-webkit-slider-thumb]:w-8 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#2b2b2b] active:[&::-webkit-slider-thumb]:scale-105"
             type="range"
             min="0"
             max="100"
@@ -412,22 +419,6 @@
           />
         </div>
       </div>
-      <div
-        class="mt-8 w-full grid grid-cols-2 bg-gradient lg:grid-cols-3 gap-4"
-      >
-        <button
-          v-for="preset in presets"
-          @click="handlePreset(preset.color)"
-          class="rounded-md text-sm font-medium h-auto p-2 flex flex-col items-center justify-center text-center bg-[var(--presetColor)]"
-          :style="`--presetColor:${preset.color};`"
-        >
-          <img
-            src="https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480"
-            alt="Ocean"
-            class="w-full h-20 object-cover mb-2 rounded"
-          /><span class="text-white font-medium">{{ preset.name }}</span>
-        </button>
-      </div>
     </div>
   </div>
 </template>
@@ -436,10 +427,9 @@
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 import useImageControls from "../composables/useImageControls";
+import SidebarTitle from "./Typography/SidebarTitle.vue";
 
 const {
-  imageUrl,
-  aspectRatio,
   showPreview,
   handleViewCode,
   bgLayerOpacity,
@@ -493,24 +483,6 @@ const updateSliderBackground = () => {
 // range background color initialize
 updateSliderBackground();
 
-const handlePreset = (presetColor: string) => {
-  selectedGradientDirection.value = ""
-  // imageUrl.value =
-  //   "https://img.freepik.com/free-photo/anime-style-mountains-landscape_23-2151135147.jpg?t=st=1724563736~exp=1724567336~hmac=500d1e19a752c9bd78fe033d37e2c82f4cdd21d7a96365dfcc6cb22ab1aac44b&w=1480";
-  mixBlendValue.value = "multiply";
-  bgLayerColor.value = `${presetColor}`;
-  aspectRatio.value = "video";
-};
-
-const presets = [
-  { name: "Ocean", color: "#0077BE" },
-  { name: "Forest", color: "#228B22" },
-  { name: "Sunset", color: "#FFA500" },
-  { name: "Lavender", color: "#E6E6FA" },
-  { name: "Cherry", color: "#DE3163" },
-  { name: "Midnight", color: "#191970" },
-];
-
 const handleSelectedGradient = (gradient: string) => {
   selectedGradientDirection.value = gradient;
   showGradientDropdown.value = false;
@@ -527,11 +499,11 @@ const gradientDirections = [
   "bg-gradient-to-tl",
 ];
 
-const gradientDropdownTarget = ref(null)
+const gradientDropdownTarget = ref(null);
 
 onClickOutside(gradientDropdownTarget, () => {
-  showGradientDropdown.value = false
-})
+  showGradientDropdown.value = false;
+});
 </script>
 
 <style scoped>

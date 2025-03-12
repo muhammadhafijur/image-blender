@@ -2,7 +2,7 @@
   <UniquePresets />
   <button
     @click="toggleFullScreen"
-    class="w-8 h-8 sm:w-12 sm:h-12 rounded-[20px] fixed grid place-items-center z-20 text-white right-6 bottom-6 bg-slate-800 dark:bg-indigo-500 transition duration-300 ease-out group-hover:-translate-y-32"
+    class="fixed bottom-6 right-6 z-20 grid h-8 w-8 place-items-center rounded-[20px] bg-slate-800 text-white transition duration-300 ease-out group-hover:-translate-y-32 dark:bg-indigo-500 sm:h-12 sm:w-12"
   >
     <svg
       v-if="isFullScreen"
@@ -39,17 +39,17 @@
   </button>
 
   <div
-    class="fixed left-6 bottom-20 z-20 w-full max-w-56 sm:max-w-[428px] transition duration-500 origin-bottom-left font-inter"
+    class="fixed bottom-20 left-6 z-20 w-full max-w-56 origin-bottom-left font-inter transition duration-500 sm:max-w-[428px]"
     :class="[showPopupFeedback ? 'scale-100' : 'scale-0']"
   >
-    <div class="p-4 ease-out sm:p-6 bg-white shadow rounded-2xl">
-      <div class="flex justify-between items-center">
-        <h6 class="text-xs sm:text-base font-semibold">
+    <div class="rounded-2xl bg-white p-4 shadow ease-out sm:p-6">
+      <div class="flex items-center justify-between">
+        <h6 class="text-xs font-semibold sm:text-base">
           Your Feedback Matters!
         </h6>
         <button
           @click="showPopupFeedback = false"
-          class="rounded w-9 h-9 grid place-items-center text-gray-600 hover:text-slate-900"
+          class="grid h-9 w-9 place-items-center rounded text-gray-600 hover:text-slate-900"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,27 +66,27 @@
           </svg>
         </button>
       </div>
-      <p class="mt-3 sm:mt-4 text-gray-500 text-[10px] sm:text-sm">
+      <p class="mt-3 text-[10px] text-gray-500 sm:mt-4 sm:text-sm">
         There have been 117 billion+ people who have lived and died on this blue
         planet. But there has never been and will never be another
         <span
-          class="underline decoration-wavy decoration-emerald-400 text-emerald-500 font-semibold"
+          class="font-semibold text-emerald-500 underline decoration-emerald-400 decoration-wavy"
           >You</span
         >. So take care of yourself and take care of your soul. Do not try to be
         the smartest in the room; try to be the
         <span
-          class="underline decoration-wavy decoration-emerald-400 text-emerald-500 font-semibold"
+          class="font-semibold text-emerald-500 underline decoration-emerald-400 decoration-wavy"
           >Kindest</span
         >.
       </p>
       <div
-        class="mt-4 sm:mt-6 grid grid-cols-2 gap-2 md:gap-4 text-[8px] sm:text-xs font-medium"
+        class="mt-4 grid grid-cols-2 gap-2 text-[8px] font-medium sm:mt-6 sm:text-xs md:gap-4"
       >
         <a
           href="https://github.com/muhammadhafijur/image-blender"
           target="_blank"
           rel="noopener noreferrer"
-          class="block text-center bg-slate-900 text-white p-1.5 sm:p-3 rounded-xl"
+          class="block rounded-xl bg-slate-900 p-1.5 text-center text-white sm:p-3"
         >
           GIVE A STAR
         </a>
@@ -94,7 +94,7 @@
           href="https://github.com/muhammadhafijur/image-blender/issues/1"
           target="_blank"
           rel="noopener noreferrer"
-          class="block text-center bg-gray-100 text-gray-900 p-1.5 sm:p-3 rounded-xl"
+          class="block rounded-xl bg-gray-100 p-1.5 text-center text-gray-900 sm:p-3"
         >
           LEAVE A REVIEW
         </a>
@@ -103,7 +103,7 @@
   </div>
   <button
     @click="handlePopupFeedback"
-    class="mt-4 w-8 h-8 sm:w-12 fixed animated-div left-6 bottom-6 z-20 sm:h-12 rounded-xl sm:rounded-[20px] bg-slate-900 dark:bg-indigo-500 grid place-items-center tex-white"
+    class="animated-div tex-white fixed bottom-6 left-6 z-20 mt-4 grid h-8 w-8 place-items-center rounded-xl bg-slate-900 dark:bg-indigo-500 sm:h-12 sm:w-12 sm:rounded-[20px]"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="size-4 sm:size-6 fill-white stroke-white"
+      class="size-4 fill-white stroke-white sm:size-6"
     >
       <polygon
         points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
@@ -122,18 +122,8 @@
   </button>
   <TheHeader />
   <HeroSection />
-  <TheImageFinder />
 
-  <main class="font-inter bg-white min-h-[calc(100vh-68px)] flex flex-col">
-    <section class="w-full grow h-full bg-white dark:bg-custom-dark-400 py-12">
-      <div
-        class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 items-start gap-8"
-      >
-        <DisplayBox />
-        <ImageControls />
-      </div>
-    </section>
-
+  <main class="flex min-h-[calc(100vh-68px)] flex-col bg-white font-inter">
     <BlenderShowcase />
     <UserTestimonials />
   </main>
@@ -143,10 +133,7 @@
 <script setup lang="ts">
 // import "prismjs/themes/prism.css";
 import BlenderShowcase from "@/components/BlenderShowcase.vue";
-import DisplayBox from "@/components/DisplayBox.vue";
 import HeroSection from "@/components/HeroSection.vue";
-import ImageControls from "@/components/ImageControls.vue";
-import UniquePresets from "@/components/UniquePresets.vue";
 import UserTestimonials from "@/components/UserTestimonials.vue";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
@@ -154,29 +141,6 @@ import "prismjs/themes/prism-tomorrow.css";
 import { ref } from "vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
-import TheImageFinder from "../components/TheImageFinder.vue";
-import useImageControls from "../composables/useImageControls";
-import useSupabase from "../composables/useSupabase";
-
-const {
-  imageUrl,
-  aspectRatio,
-  showPreview,
-  viewCode,
-  handleViewCode,
-  bgLayerOpacity,
-  bgLayerColor,
-  mixBlendValue,
-  selectedGradientDirection,
-  fromGradient,
-  viaGradient,
-  toGradient,
-} = useImageControls();
-
-const { session, signInWithGoogle } =
-  useSupabase();
-
-
 
 const showPopupFeedback = ref(false);
 
