@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-[calc(100%-88px)] w-full">
+  <div class="relative h-[150px] sm:h-[300px] lg:h-[calc(100%-88px)] w-full">
     <button
       v-if="!showPreview"
       @click="copyCode"
