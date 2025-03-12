@@ -7,7 +7,7 @@
       <SidebarNavigationPanel />
       <!-- The Sidebar -->
       <section
-        class="[&::-webkit-scrollbar-thumb] hover:[&::-webkit-scrollbar-thumb]:bg-custom-green-500/70 min-h-[200px] w-full overflow-hidden overflow-y-auto rounded-xl bg-[#131412] font-inter lg:h-full lg:w-[400px] [&::-webkit-scrollbar-thumb]:rounded-xl [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:hidden [&::-webkit-scrollbar]:w-2"
+        class="[&::-webkit-scrollbar-thumb] hover:[&::-webkit-scrollbar-thumb]:bg-custom-green-500/70 shrink-0 h-[150px] w-full overflow-hidden overflow-y-auto md:rounded-xl bg-[#131412] font-inter lg:h-full lg:w-[400px] [&::-webkit-scrollbar-thumb]:rounded-xl [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:hidden [&::-webkit-scrollbar]:w-2"
       >
         <Transition :css="false" appear @enter="onEnter">
           <ImageControls v-if="activeMenu == 'imageControls'" />
@@ -31,7 +31,7 @@
         </Transition>
       </section>
       <div
-        class="relative flex h-full w-full flex-col gap-4 rounded-xl bg-[radial-gradient(#ffffff33_1px,#131412_1px)] bg-[size:20px_20px] p-4 dark:bg-black"
+        class="relative flex h-full w-full flex-col gap-4 md:rounded-xl bg-[radial-gradient(#ffffff33_1px,#131412_1px)] bg-[size:20px_20px] p-2 md:p-4 dark:bg-black"
         @dragover.prevent="handleDragOver"
       >
         <div

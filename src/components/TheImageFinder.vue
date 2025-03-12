@@ -28,7 +28,7 @@
       <input
         id="imageUrl"
         type="text"
-        class="w-full bg-transparent py-6 text-base font-normal text-gray-200 caret-emerald-500 focus:outline-none dark:text-gray-100"
+        class="w-full bg-transparent py-4 lg:py-6 text-base font-normal text-gray-200 caret-emerald-500 focus:outline-none dark:text-gray-100"
         v-model="imageUrl"
       />
       <div class="flex items-center gap-4">
@@ -89,7 +89,7 @@
         />
       </div>
 
-      <div class="block text-right lg:hidden">
+      <div class="block text-right xl:hidden">
         <Menu as="div" class="relative inline-block text-left">
           <div class="flex items-center gap-3 text-sm font-medium text-white">
             <MenuButton
@@ -255,7 +255,7 @@
         </Menu>
       </div>
       <div
-        class="hidden w-full max-w-64 grow grid-cols-2 justify-center rounded-lg bg-zinc-600/60 p-1 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] dark:bg-gray-100 lg:grid"
+        class="hidden w-full max-w-64 grow grid-cols-2 justify-center rounded-lg bg-zinc-600/60 p-1 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] dark:bg-gray-100 xl:grid"
       >
         <button
           @click="toggleViewMode('preview')"
@@ -312,7 +312,7 @@
         </button>
       </div>
       <div
-        class="group relative hidden w-full max-w-36 grid-cols-3 justify-items-center rounded-lg bg-zinc-800 p-1 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] lg:grid"
+        class="group relative hidden w-full max-w-36 grid-cols-3 justify-items-center rounded-lg bg-zinc-800 p-1 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] xl:grid"
       >
         <div
           class="absolute -top-9 right-0 hidden rounded-md bg-slate-800 px-4 py-2 text-xs text-white group-hover:block"

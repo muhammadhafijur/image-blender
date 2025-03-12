@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="flex h-auto w-full shrink-0 gap-x-4 gap-y-4 overflow-auto bg-[#131412] md:justify-between md:gap-x-0 md:rounded-xl md:p-2 lg:h-full lg:w-16 lg:flex-col"
+    class="flex h-auto w-full shrink-0 gap-x-4 gap-y-4 overflow-auto bg-[#131412] lg:justify-between lg:gap-x-0 md:rounded-xl md:p-2 lg:h-full lg:w-16 lg:flex-col"
   >
     <!-- Top Section -->
     <div
@@ -50,23 +50,20 @@
       >
         <Sparkles class="h-5 w-5" />
       </button>
-      <div class="hidden md:block w-full h-0.5 bg-zinc-800 my-2"></div>
+      <div class="hidden lg:block w-full h-0.5 bg-zinc-800 my-2"></div>
       <div
-        class="relative flex h-20 mx-4 md:mx-0 w-10 rotate-90 cursor-pointer flex-col overflow-hidden rounded-lg border border-emerald-800 bg-zinc-800 shadow-md md:rotate-0"
-        @click="showCode = !showCode"
-        role="switch"
-        :aria-checked="showCode"
+        class="relative flex h-20 mx-4 lg:mx-0 w-10 rotate-90 lg:rotate-0 cursor-pointer flex-col overflow-hidden rounded-lg border border-emerald-800 bg-zinc-800 shadow-md "
+        
         aria-label="Toggle between code and preview view"
         tabindex="0"
-        @keydown.space.prevent="showCode = !showCode"
-        @keydown.enter.prevent="showCode = !showCode"
+        
       >
         <button
           @click="toggleViewMode('preview')"
           class="z-10 flex h-1/2 items-center justify-center transition-colors duration-300"
           :class="{
-            'bg-emerald-500 text-white': !showCode,
-            'text-gray-400': showCode,
+            'bg-emerald-500 text-white': showPreview,
+            'text-gray-400': !showPreview,
           }"
         >
           <Eye class="h-5 w-5" />
@@ -75,8 +72,8 @@
           @click="toggleViewMode('code')"
           class="z-10 flex h-1/2 items-center justify-center transition-colors duration-300"
           :class="{
-            'bg-emerald-500 text-white': showCode,
-            'text-gray-400': !showCode,
+            'bg-emerald-500 text-white': !showPreview,
+            'text-gray-400': showPreview,
           }"
         >
           <Code class="h-5 w-5" />
@@ -141,5 +138,4 @@ const toggleViewMode = async (mode: string) => {
   }
 };
 
-const showCode = ref(false);
 </script>
