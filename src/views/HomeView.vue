@@ -1,5 +1,4 @@
 <template>
-  <UniquePresets />
   <button
     @click="toggleFullScreen"
     class="fixed bottom-6 right-6 z-20 grid h-8 w-8 place-items-center rounded-[20px] bg-slate-800 text-white transition duration-300 ease-out group-hover:-translate-y-32 dark:bg-indigo-500 sm:h-12 sm:w-12"
@@ -120,27 +119,30 @@
       />
     </svg>
   </button>
-  <TheHeader />
+  <!-- <TheHeader /> -->
   <HeroSection />
+  <TheFeatures />
 
   <main class="flex min-h-[calc(100vh-68px)] flex-col bg-white font-inter">
-    <BlenderShowcase />
+    <ImageShowcase />
     <UserTestimonials />
+    <TheCta />
   </main>
   <TheFooter />
 </template>
 
 <script setup lang="ts">
 // import "prismjs/themes/prism.css";
-import BlenderShowcase from "@/components/BlenderShowcase.vue";
 import HeroSection from "@/components/HeroSection.vue";
+import ImageShowcase from "@/components/ImageShowcase.vue";
+import TheCta from "@/components/TheCta.vue";
+import TheFeatures from "@/components/TheFeatures.vue";
 import UserTestimonials from "@/components/UserTestimonials.vue";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
 import "prismjs/themes/prism-tomorrow.css";
 import { ref } from "vue";
 import TheFooter from "../components/TheFooter.vue";
-import TheHeader from "../components/TheHeader.vue";
 
 const showPopupFeedback = ref(false);
 

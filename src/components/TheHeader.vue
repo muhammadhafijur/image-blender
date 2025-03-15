@@ -1,11 +1,12 @@
 <template>
   <header
-    class=""
-    :class="
-      $route.path === '/'
-        ? 'border-b bg-white dark:bg-custom-dark-400 dark:border-gray-700'
-        : 'bg-zinc-950'
-    "
+    class="z-40 w-full"
+    :class="{
+      'fixed dark:border-gray-700 dark:bg-custom-dark-400':
+        $route.path === '/',
+      'relative bg-zinc-950': $route.path !== '/',
+      'bg-zinc-950/50 backdrop-blur': isScrolled,
+    }"
   >
     <div
       class="mx-auto flex w-full items-center gap-4 px-4 py-3.5 sm:gap-8"
@@ -27,8 +28,28 @@
       </RouterLink>
 
       <div class="flex flex-1 items-center justify-end">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4 font-inter">
           <a
+            href="https://github.com/muhammadhafijur/image-blender"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-lg px-2 py-1.5 text-base text-white shadow-lg shadow-neutral-500/20 transition active:scale-[.95] sm:px-6 sm:py-2"
+            :class="
+              $route.path === '/' ? 'bg-neutral-950/50' : 'bg-neutral-950'
+            "
+            ><Star class="size-5" /><span>{{ starCount }}</span>
+            <div
+              class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]"
+            >
+              <div class="relative h-full w-4 bg-white/20"></div>
+            </div>
+            <!-- <div
+            class="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]"
+          >
+            <div class="relative h-full w-8 bg-white/30"></div>
+          </div> -->
+          </a>
+          <!-- <a
             href="https://github.com/muhammadhafijur/image-blender"
             target="_blank"
             rel="noopener noreferrer"
@@ -38,26 +59,28 @@
                 ? 'bg-gray-200 dark:bg-gray-100'
                 : 'bg-zinc-800 text-gray-100'
             "
-            >
-            <span><svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="size-4 sm:size-5"
-            >
-              <path
-                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-              ></path>
-              <path d="M9 18c-4.51 2-5-2-7-2"></path></svg
-            ><span class="sr-only">GitHub</span></span>
-             </a
-          ><button
+          >
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-4 sm:size-5"
+              >
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                ></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+              ><span class="sr-only">GitHub</span></span
+            > </a
+          > -->
+          <button
             @click="toggleDarkMode"
-            class="grid h-8 w-8 place-items-center rounded-md bg-gray-200 dark:bg-gray-100 sm:h-10 sm:w-10"
+            class="hidden h-8 w-8 place-items-center rounded-md bg-gray-200 dark:bg-gray-100 sm:h-10 sm:w-10"
             :class="$route.path === '/' ? 'block' : 'hidden'"
           >
             <svg
@@ -100,7 +123,10 @@
           <button
             v-if="!session"
             @click="signInWithGoogle"
-            class="flex items-center gap-1 rounded-md bg-slate-900 px-2 py-1.5 text-white sm:px-4 sm:py-2"
+            class="flex items-center gap-1 rounded-md px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
+            :class="
+              $route.path === '/' ? 'bg-neutral-950/50' : 'bg-neutral-950'
+            "
           >
             <svg
               class="size-5 sm:size-5"
@@ -176,7 +202,8 @@
 import useImageControls from "@/composables/useImageControls";
 import type { Session } from "@supabase/supabase-js";
 import { onClickOutside } from "@vueuse/core";
-import { onMounted, ref } from "vue";
+import { Star } from "lucide-vue-next";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 import useSupabase from "../composables/useSupabase";
 import supabase from "../lib/supabaseClient";
@@ -211,6 +238,35 @@ const dropdownTarget = ref(null);
 
 onClickOutside(dropdownTarget, () => {
   showProfileDropdown.value = false;
+});
+
+const starCount = ref(0);
+
+onMounted(() => {
+  fetch("https://api.github.com/repos/muhammadhafijur/image-blender")
+    .then((res) => res.json())
+    .then((data) => (starCount.value = data.stargazers_count))
+    .catch((error) => {
+      console.error("Error fetching star count:", error);
+    });
+});
+
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  if (window.scrollY > 300) {
+    isScrolled.value = true;
+  } else {
+    isScrolled.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 

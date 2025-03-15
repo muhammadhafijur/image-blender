@@ -10,10 +10,15 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    // {
+    //   path: '/editor',
+    //   name: 'editor',
+    //   component: EditorView
+    // },
     {
       path: '/editor',
       name: 'editor',
-      component: EditorView
+      component: () => import('../views/EditorView.vue')
     }
     // {
     //   path: '/about',

@@ -21,7 +21,7 @@
               preset.mixBlendValue,
             )
           "
-          class="flex h-auto flex-col items-center justify-center rounded-md border-2 bg-[var(--presetColor)] bg-zinc-800 p-2 text-center text-sm font-medium disabled:cursor-not-allowed"
+          class="flex h-auto flex-col items-center justify-center rounded-md border-2 bg-[var(--presetColor)] bg-zinc-800 p-1 md:p-2 text-center text-sm font-medium disabled:cursor-not-allowed"
           :class="
             activePreset == preset.id
               ? ' border-emerald-400'

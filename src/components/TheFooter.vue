@@ -1,8 +1,8 @@
 <template>
   <!-- #F6F6F9 -->
-  <footer class="pt-32 w-full bg-white dark:bg-custom-dark-400 font-inter">
+  <footer class="w-full bg-zinc-950 pt-32 font-inter dark:bg-custom-dark-400">
     <div
-      class="relative max-w-screen-xl px-4 sm:px-6 md:px-8 mx-auto text-emerald-500 flex gap-2 sm:gap-3 md:gap-4 items-center"
+      class="relative mx-auto flex max-w-screen-xl items-center gap-2 px-4 text-emerald-500 sm:gap-3 sm:px-6 md:gap-4 md:px-8"
     >
       <!-- <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@
       </svg> -->
 
       <div
-        class="h-px w-full line-animation max-w-full bg-gradient-to-r from-transparent via-emerald-400 to-emerald-500 rounded-full"
+        class="line-animation h-px w-full max-w-full rounded-full bg-gradient-to-r from-transparent via-emerald-400 to-emerald-500"
       ></div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="size-6 rotate-45 shrink-0 rocket-animation"
+        class="rocket-animation size-6 shrink-0 rotate-45"
       >
         <path
           d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"
@@ -48,16 +48,16 @@
         <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
       </svg>
     </div>
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 pt-12 pb-24">
+    <div class="mx-auto max-w-screen-xl px-4 pb-24 pt-12 sm:px-6 md:px-8">
       <div
         class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:justify-between sm:space-y-0"
       >
-        <p class="text-base text-slate-700 dark:text-gray-300 rounded-lg">
+        <p class="rounded-lg text-base text-gray-300 dark:text-gray-300">
           Created by
           <a
             href="https://www.linkedin.com/in/muhammadhafijur/"
             target="_blank"
-            class="font-bold text-blue-500"
+            class="font-bold text-indigo-500"
             >Muhammad Hafijur</a
           >
         </p>
@@ -65,7 +65,7 @@
           <a
             href="https://github.com/muhammadhafijur"
             target="_blank"
-            class="text-gray-600 dark:text-gray-200 transition duration-300 ease-out hover:scale-110 hover:text-slate-800"
+            class="text-gray-300 transition duration-300 ease-out hover:scale-110 hover:text-gray-100 dark:text-gray-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@
           <a
             href="https://www.linkedin.com/in/muhammadhafijur/"
             target="_blank"
-            class="text-gray-600 dark:text-slate-50 transition duration-300 ease-out hover:scale-110 hover:text-blue-700 dark:hover:text-blue-700"
+            class="text-gray-200 transition duration-300 ease-out hover:scale-110 hover:text-blue-700 dark:text-slate-50 dark:hover:text-blue-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -117,8 +117,6 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-
-
 .line-animation {
   animation: lineMove 15s ease-out forwards;
 }
