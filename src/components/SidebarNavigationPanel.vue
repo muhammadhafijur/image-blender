@@ -241,7 +241,7 @@ const toggleViewMode = async (mode: string) => {
   }
 };
 
-const isOpen = ref(true);
+const isOpen = ref(false);
 
 function closeModal() {
   isOpen.value = false;
