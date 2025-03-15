@@ -1,6 +1,95 @@
 <template>
+  <TransitionRoot appear :show="isOpen" as="template">
+    <Dialog as="div" @close="closeModal" class="relative z-10 font-inter">
+      <TransitionChild
+        as="template"
+        enter="duration-300 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-200 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
+      >
+        <div class="fixed inset-0 bg-black/25" />
+      </TransitionChild>
+
+      <div class="fixed inset-0 overflow-y-auto">
+        <div
+          class="flex min-h-full items-center justify-center p-4 text-center"
+        >
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <DialogPanel
+              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-zinc-800 p-6 text-left align-middle shadow-xl transition-all"
+            >
+              <div
+                class="flex items-center justify-between border-b border-gray-700 pb-4"
+              >
+                <DialogTitle
+                  as="h3"
+                  class="text-lg font-bold leading-6 text-gray-200 md:text-2xl"
+                >
+                  About Image Blender
+                </DialogTitle>
+                <button
+                  type="button"
+                  class="grid h-10 w-10 place-items-center rounded-md border border-transparent bg-zinc-900 text-sm font-medium text-gray-300 transition duration-300 ease-out hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  @click="closeModal"
+                >
+                  <X class="h-5 w-5" />
+                </button>
+              </div>
+
+              <div class="mt-4 space-y-4">
+                <p class="text-base text-gray-200">
+                  Blend, overlay, and transform images in seconds! Image Blender
+                  gives you creative control with real-time previews and
+                  flexible customization.
+                </p>
+
+                <h4 class="text-xl font-bold text-gray-200">Contribution</h4>
+                <p class="text-base text-gray-200">
+                  Have a feature request or feedback? Join us on
+                  <a
+                    href="https://github.com/muhammadhafijur/image-blender"
+                    class="text-sky-500 underline"
+                    >GitHub</a
+                  >
+                  and make Image Blender even better.
+                </p>
+
+                <h4 class="text-xl font-bold text-gray-200">Support</h4>
+                <p class="text-base text-gray-200">
+                  If this tool saves you time, consider showing some love by
+                  <a
+                    href="https://github.com/muhammadhafijur/image-blender"
+                    class="text-sky-500 underline"
+                    >starring</a
+                  >
+                  the project or
+                  <a
+                    href="https://github.com/muhammadhafijur/image-blender/issues/1"
+                    class="text-sky-500 underline"
+                    >leaving</a
+                  >
+                  a review on GitHub.
+                </p>
+              </div>
+            </DialogPanel>
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
   <aside
-    class="flex h-auto w-full shrink-0 gap-x-4 gap-y-4 overflow-auto  bg-[#131412] lg:justify-between lg:gap-x-0 md:rounded-xl md:p-2 lg:h-full lg:w-16 lg:flex-col [&::-webkit-scrollbar-thumb] hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-xl [&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-track]:hidden [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar]:h-1.5"
+    class="[&::-webkit-scrollbar-thumb] flex h-auto w-full shrink-0 gap-x-4 gap-y-4 overflow-auto bg-[#131412] md:rounded-xl md:p-2 lg:h-full lg:w-16 lg:flex-col lg:justify-between lg:gap-x-0 [&::-webkit-scrollbar-thumb]:rounded-xl [&::-webkit-scrollbar-thumb]:bg-gray-600 hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-track]:hidden [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar]:w-1.5"
   >
     <!-- Top Section -->
     <div
@@ -50,13 +139,11 @@
       >
         <Sparkles class="h-5 w-5" />
       </button>
-      <div class="hidden lg:block w-full h-0.5 bg-zinc-800 my-2"></div>
+      <div class="my-2 hidden h-0.5 w-full bg-zinc-800 lg:block"></div>
       <div
-        class="relative flex h-20 mx-4 lg:mx-0 w-10 rotate-90 lg:rotate-0 cursor-pointer flex-col overflow-hidden rounded-lg border border-emerald-800 bg-zinc-800 shadow-md "
-        
+        class="relative mx-4 hidden h-20 w-10 rotate-90 cursor-pointer flex-col overflow-hidden rounded-lg border border-emerald-800 bg-zinc-800 shadow-md md:flex lg:mx-0 lg:rotate-0"
         aria-label="Toggle between code and preview view"
         tabindex="0"
-        
       >
         <button
           @click="toggleViewMode('preview')"
@@ -91,12 +178,27 @@
     </div>
 
     <div class="flex items-center gap-x-4 lg:flex-col lg:gap-x-0 lg:gap-y-4">
-      <button
-        v-for="(item, index) in footerItems"
-        :key="index"
+      <a
+        href="https://github.com/muhammadhafijur/image-blender"
+        target="_blank"
+        rel="noopener noreferrer"
         class="flex h-12 w-12 items-center justify-center text-gray-400 transition-all duration-300 hover:bg-gray-800 hover:text-gray-100 md:rounded-lg"
+        :class="{
+          'bg-emerald-500 text-white': !showPreview,
+          'text-gray-400': showPreview,
+        }"
       >
-        <component :is="item.icon" class="h-5 w-5" />
+        <Github class="h-5 w-5" />
+      </a>
+      <button
+        @click="openModal"
+        class="flex h-12 w-12 items-center justify-center text-gray-400 transition-all duration-300 hover:bg-gray-800 hover:text-gray-100 md:rounded-lg"
+        :class="{
+          'bg-emerald-500 text-white': !showPreview,
+          'text-gray-400': showPreview,
+        }"
+      >
+        <CircleHelp class="h-5 w-5" />
       </button>
     </div>
   </aside>
@@ -109,23 +211,24 @@ const { showPreview, handleViewCode, activeMenu, handleActiveSection } =
   useImageControls();
 
 import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  TransitionChild,
+  TransitionRoot,
+} from "@headlessui/vue";
+import {
+  CircleHelp,
   Code,
   Eye,
   Github,
-  HelpCircle,
   Images,
   Pencil,
   Save,
-  Sparkles
+  Sparkles,
+  X,
 } from "lucide-vue-next";
 import { nextTick, ref } from "vue";
-
-
-
-const footerItems = ref([
-  { icon: HelpCircle, active: false },
-  { icon: Github, active: false },
-]);
 
 const toggleViewMode = async (mode: string) => {
   if (mode === "preview") {
@@ -138,4 +241,12 @@ const toggleViewMode = async (mode: string) => {
   }
 };
 
+const isOpen = ref(true);
+
+function closeModal() {
+  isOpen.value = false;
+}
+function openModal() {
+  isOpen.value = true;
+}
 </script>

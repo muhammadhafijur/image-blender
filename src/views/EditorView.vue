@@ -31,7 +31,7 @@
         </Transition>
       </section>
       <div
-        class="relative flex h-full w-full flex-col gap-4 bg-[radial-gradient(#ffffff33_1px,#131412_1px)] bg-[size:20px_20px] p-2 dark:bg-black md:rounded-xl md:p-4"
+        class="relative flex h-full w-full flex-col gap-4 bg-[#131417] p-2 dark:bg-black md:rounded-xl md:p-4"
         @dragover.prevent="handleDragOver"
       >
         <div

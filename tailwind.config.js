@@ -25,9 +25,19 @@ export default {
           '0%': { transform: 'translate(-50%, -50%) scale(0)', opacity: '1' },
           '100%': { transform: 'translate(-50%, -50%) scale(1)', opacity: '0' },
         },
+        ["shine-infinite"]: {
+          "0%": {
+            transform: "skew(-12deg) translateX(-100%)",
+          },
+          "100%": {
+            transform: "skew(-12deg) translateX(100%)",
+          },
+        },
       },
       animation: {
-        'spin-slow': 'spin 4s linear infinite',
+        'spin-slow': 'spin 8s linear infinite',
+        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        ["shine-infinite"]: "shine-infinite 2s ease-in-out infinite",
         ripple: 'ripple 2s infinite ease-out',
       }
     },

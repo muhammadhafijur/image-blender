@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-[150px] sm:h-[300px] md:h-[500px] lg:h-[calc(100%-88px)] w-full">
+  <div class="relative h-[220px] sm:h-[300px] md:h-[400px] lg:h-[calc(100%-88px)] w-full">
     <button
       v-if="!showPreview"
       @click="copyCode"
@@ -230,7 +230,7 @@
           class="mx-auto h-full"
           :class="{
             'aspect-square object-cover': aspectRatio === 'square',
-            'aspect-video ': aspectRatio === 'video',
+            'aspect-video object-cover w-full': aspectRatio === 'video',
             'aspect-auto object-cover': aspectRatio === 'auto',
           }"
         />

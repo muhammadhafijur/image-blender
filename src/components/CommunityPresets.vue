@@ -4,7 +4,7 @@
       class="relative h-full w-full bg-[#131412] p-4 dark:bg-[#131412] sm:pb-12 sm:pt-6"
     >
       <SidebarTitle>COMMUNITY PRESETS</SidebarTitle>
-      <div class="grid w-full grid-cols-2 gap-4">
+      <div class="grid w-full grid-cols-3 lg:grid-cols-2 gap-4">
         <div
           v-for="preset in communityPresets"
           :key="preset.id"
@@ -24,7 +24,7 @@
                 preset.mixBlendValue,
               )
             "
-            class="flex h-auto flex-col items-center justify-center rounded-md border-2 bg-[var(--presetColor)] bg-zinc-800 p-2 text-center text-sm font-medium disabled:cursor-not-allowed"
+            class="flex h-auto flex-col items-center justify-center rounded-md border-2 bg-[var(--presetColor)] bg-zinc-800 p-1 md:p-2 text-center text-sm font-medium disabled:cursor-not-allowed"
             :class="
               activePreset == preset.id
                 ? ' border-emerald-400'
@@ -58,6 +58,7 @@
             by - <span class="underline">{{ preset.author }}</span>
           </a>
         </div>
+        
       </div>
       <a
         class="relative mt-6 block  bg-gradient-to-tr from-sky-400 to-purple-600 bg-clip-text p-4 text-center text-base font-bold text-transparent"

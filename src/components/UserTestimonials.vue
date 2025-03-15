@@ -1,29 +1,29 @@
 <template>
-  <section class="bg-white dark:bg-custom-dark-400">
+  <section class="relative z-10 bg-gradient-to-b from-gray-900 to-black">
     <div
-      class="mt-12 max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16"
+      class="mx-auto mt-12 max-w-screen-xl px-4 py-12 sm:px-6 md:px-8 md:py-16"
     >
-      <h2
-        class="text-transparent bg-gradient-to-r from-sky-500 via-blue-500 via-20% to-purple-500 to-80% bg-clip-text font-inter text-xl md:text-2xl lg:text-3xl font-extrabold text-center"
-      >
-        Loved by many worldwide.
-      </h2>
-      <p
-        class="text-base md:text-lg mt-4 text-gray-500 dark:text-gray-300 text-center"
-      >
-        See what users are saying about Image Blender.
-      </p>
+      
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-3xl font-bold md:text-4xl">
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            >What Our Users Say</span
+          >
+        </h2>
+        <p class="mx-auto max-w-2xl text-gray-300">
+          See what users are saying about Image Blender.
+        </p>
+      </div>
       <div
-        class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 py-8 md:py-12"
+        class="columns-1 gap-8 space-y-8 md:columns-2 lg:columns-3 mb-16"
       >
         <div
           v-for="review in reviews"
           :key="review.id"
-          class="break-inside-avoid border border-slate-200 dark:border-slate-700 p-6 rounded-xl bg-slate-50 dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow duration-300"
+          class="break-inside-avoid rounded-xl border border-slate-200 border-white/10 bg-slate-50 bg-white/5 p-6 shadow-sm backdrop-blur-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
         >
-          <q class="block mb-4 text-slate-700 dark:text-slate-300 italic">{{
-            review.text
-          }}</q>
+          <q class="mb-4 block italic text-gray-100">{{ review.text }}</q>
           <div class="flex items-center gap-3">
             <span class="flex-shrink-0">
               <img
@@ -39,16 +39,14 @@
                 rel="noopener noreferrer"
                 target="_blank"
                 :aria-label="review.author.name"
-                class="focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-sm"
+                class="rounded-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
               >
-                <p
-                  class="text-sm font-semibold text-slate-900 dark:text-slate-100"
-                >
+                <p class="text-sm font-semibold text-emerald-600">
                   {{ review.author.name }}
                 </p>
-                <p class="text-sm text-slate-600 dark:text-slate-400">
+                <p class="text-sm text-gray-300">
                   {{ review.author.role }}
-                  {{ review.author.company ? 'at' : '' }}
+                  {{ review.author.company ? "at" : "" }}
                   {{ review.author.company }}
                 </p>
               </a>
@@ -64,28 +62,28 @@
 import userReviews from "../../db/userReviews.json";
 
 interface Author {
-	username: string;
-	avatar: string;
-	name: string;
-	role: string;
-	company: string;
+  username: string;
+  avatar: string;
+  name: string;
+  role: string;
+  company: string;
 }
 
 interface Review {
-	id: string;
-	text: string;
-	author: Author;
+  id: string;
+  text: string;
+  author: Author;
 }
 
 interface UserReviews {
-	reviews: Review[];
+  reviews: Review[];
 }
 
 export default {
-	data() {
-		return {
-			reviews: (userReviews as UserReviews).reviews,
-		};
-	},
+  data() {
+    return {
+      reviews: (userReviews as UserReviews).reviews,
+    };
+  },
 };
 </script>

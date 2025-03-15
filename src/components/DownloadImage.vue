@@ -7,7 +7,7 @@
       <button
         :disabled="loading"
         @click="incrementDownloadCount"
-        class="mt-2 px-4 py-2 bg-slate-800 dark:bg-indigo-500 disabled:bg-gray-200 disabled:text-gray-500 flex items-center gap-2 text-base font-inter justify-center w-full text-white rounded-md"
+        class="mt-2 px-4 py-2 bg-emerald-500 dark:bg-indigo-500 disabled:bg-gray-200 disabled:text-gray-500 flex items-center gap-2 text-base font-inter justify-center w-full text-white rounded-md"
         :class="{ 'cursor-not-allowed': loading }"
       >
         <svg
