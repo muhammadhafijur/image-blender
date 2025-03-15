@@ -2,8 +2,7 @@
   <header
     class="z-40 w-full"
     :class="{
-      'fixed dark:border-gray-700 dark:bg-custom-dark-400':
-        $route.path === '/',
+      'fixed dark:border-gray-700 dark:bg-custom-dark-400': $route.path === '/',
       'relative bg-zinc-950': $route.path !== '/',
       'bg-zinc-950/50 backdrop-blur': isScrolled,
     }"
@@ -172,11 +171,11 @@
             <div
               v-if="showProfileDropdown && session"
               ref="dropdownTarget"
-              class="absolute right-0 z-20 mt-1 w-48 rounded-md border border-gray-200 bg-white py-1 shadow-lg"
+              class="absolute right-0 z-20 mt-1 w-48 rounded-md border border-gray-700 bg-zinc-900 py-1 shadow-lg"
             >
               <button
                 @click="signOut"
-                class="block w-full px-4 py-2 text-start text-gray-700 hover:bg-gray-100"
+                class="block w-full px-4 py-2 text-start text-gray-100"
               >
                 Log out
               </button>
