@@ -1,4 +1,4 @@
-![Thumbnail](src/images/image-blender.gif)
+![Thumbnail](src/images/product.jpg)
 
 # Image Blender
 
@@ -77,7 +77,7 @@ Thanks for helping improve this project!
 
 [//]: contributor-faces
 
-<a href="https://github.com/muhammadhafijur"><img src="https://avatars.githubusercontent.com/u/85216180?v=4" title="Julia Undeutsch" width="80" height="80"></a>
+<a href="https://github.com/muhammadhafijur"><img src="https://avatars.githubusercontent.com/u/85216180?v=4" title="Muhammad Hafijur" width="80" height="80"></a>
 
 [//]: contributor-faces
 
