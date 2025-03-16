@@ -119,22 +119,26 @@
             </svg>
             <span class="sr-only">Toggle dark mode</span>
           </button>
-          <RouterLink :to="{name: 'editor'}"
+          <RouterLink
+            :to="{ name: 'editor' }"
             v-if="$route.path === '/'"
-            class="flex items-center gap-1 overflow-hidden bg-neutral-950/50 rounded-md px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
+            class="flex items-center gap-1 overflow-hidden rounded-md bg-neutral-950/50 px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
           >
+            <span class="block sm:hidden"
+              ><MoveRightIcon class="h-5 w-5"
+            /></span>
             <span class="hidden sm:block">Get Started</span>
             <span class="sr-only">Get Started</span>
             <div
-            class="animate-shine absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]"
-          >
-            <div class="relative h-full w-8 bg-white/30"></div>
-          </div>
+              class="animate-shine absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]"
+            >
+              <div class="relative h-full w-8 bg-white/30"></div>
+            </div>
           </RouterLink>
           <button
             v-if="!session && $route.path !== '/'"
             @click="signInWithGoogle"
-            class="flex items-center bg-neutral-950 gap-1 rounded-md px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
+            class="flex items-center gap-1 rounded-md bg-neutral-950 px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
           >
             <svg
               class="size-5 sm:size-5"
@@ -159,6 +163,7 @@
                 fill="#EA4335"
               ></path>
             </svg>
+
             <span class="hidden sm:block">Sign Up</span>
             <span class="sr-only">Sign up</span>
           </button>
@@ -210,7 +215,7 @@
 import useImageControls from "@/composables/useImageControls";
 import type { Session } from "@supabase/supabase-js";
 import { onClickOutside } from "@vueuse/core";
-import { Star } from "lucide-vue-next";
+import { MoveRightIcon, Star } from "lucide-vue-next";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 import useSupabase from "../composables/useSupabase";
@@ -279,13 +284,12 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-
 @keyframes shine-infinite {
   0% {
     transform: skew(-12deg) translateX(-100%);
   }
   40% {
-    transform: skew(-12deg) translateX(100%); 
+    transform: skew(-12deg) translateX(100%);
   }
   100% {
     transform: skew(-12deg) translateX(100%);
@@ -295,8 +299,4 @@ onBeforeUnmount(() => {
 .animate-shine {
   animation: shine-infinite 5s ease-in-out infinite;
 }
-
-
-
-
 </style>
