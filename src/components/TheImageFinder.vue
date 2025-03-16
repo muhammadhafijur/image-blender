@@ -1,11 +1,71 @@
 <template>
-  <!-- IMAGE FINDER -->
+  <TransitionRoot appear :show="isOpen" as="template">
+    <Dialog as="div" @close="closeModal" class="relative z-10 font-inter">
+      <TransitionChild
+        as="template"
+        enter="duration-300 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-200 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
+      >
+        <div class="fixed inset-0 bg-black/25" />
+      </TransitionChild>
+
+      <div class="fixed inset-0 overflow-y-auto">
+        <div
+          class="flex min-h-full items-center justify-center p-4 text-center"
+        >
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <DialogPanel
+              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-zinc-800 p-6 text-left align-middle shadow-xl transition-all"
+            >
+              <div
+                class="flex items-center justify-between border-b border-gray-700 pb-4"
+              >
+                <DialogTitle
+                  as="h3"
+                  class="text-base font-bold leading-6 text-gray-200 md:text-xl"
+                >
+                Can't Download Linked Images
+                </DialogTitle>
+                <button
+                  type="button"
+                  class="grid h-10 w-10 place-items-center rounded-md border border-transparent bg-zinc-900 text-sm font-medium text-gray-300 transition duration-300 ease-out hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  @click="closeModal"
+                >
+                  <X class="h-5 w-5" />
+                </button>
+              </div>
+
+              <div class="mt-4 space-y-4">
+                <p class="text-sm md:text-base text-gray-200">
+                  Unfortunately, images from external links cannot be downloaded
+                  due to security restrictions. To customize and download your
+                  image, please upload the image directly from your device.
+                </p>
+              </div>
+            </DialogPanel>
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
   <div class="rounded-xl bg-zinc-950">
     <div
       class="mx-auto flex w-full max-w-full items-center gap-4 px-4 sm:px-6 md:px-8"
     >
       <button
-        class="grid shrink-0 cursor-pointer place-items-center rounded-full text-indigo-400 dark:text-gray-100"
+        class="grid shrink-0 cursor-pointer place-items-center rounded-full text-indigo-500 dark:text-gray-100"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +88,7 @@
       <input
         id="imageUrl"
         type="text"
-        class="w-full bg-transparent py-4 md:py-6 text-base font-normal text-gray-200 caret-emerald-500 focus:outline-none dark:text-gray-100"
+        class="w-full bg-transparent py-4 text-base font-normal text-gray-200 caret-emerald-500 focus:outline-none dark:text-gray-100 md:py-6"
         v-model="imageUrl"
       />
       <div class="flex items-center gap-4">
@@ -61,7 +121,7 @@
         <label
           for="imageFile"
           title="Upload Image"
-          class="flex shrink-0 cursor-pointer items-center gap-2 rounded-full text-indigo-400"
+          class="flex shrink-0 cursor-pointer items-center gap-2 rounded-full text-emerald-500"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -249,6 +309,41 @@
                     </button>
                   </div>
                 </MenuItem>
+                <MenuItem v-slot="{ active }">
+                  <div
+                    class="group relative mt-2 w-full justify-items-center rounded-lg bg-zinc-800 p-1 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)]"
+                  >
+                    <button
+                      :disabled="loading"
+                      @click="handleDownload"
+                      class="flex w-full items-center justify-center gap-2 rounded-md bg-custom-dark-600 px-4 py-2 font-inter text-base text-emerald-400 disabled:bg-gray-200 disabled:text-gray-500"
+                      :class="{ 'cursor-not-allowed': loading }"
+                    >
+                      <svg
+                        v-if="loading"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="size-6 animate-spin"
+                      >
+                        <path d="M12 2v4" />
+                        <path d="m16.2 7.8 2.9-2.9" />
+                        <path d="M18 12h4" />
+                        <path d="m16.2 16.2 2.9 2.9" />
+                        <path d="M12 18v4" />
+                        <path d="m4.9 19.1 2.9-2.9" />
+                        <path d="M2 12h4" />
+                        <path d="m4.9 4.9 2.9 2.9" />
+                      </svg>
+
+                      <span v-else><ArrowDownToLine class="h-5 w-5" /></span>
+                    </button>
+                  </div>
+                </MenuItem>
               </div>
             </MenuItems>
           </transition>
@@ -387,6 +482,39 @@
           </svg>
         </button>
       </div>
+      <div
+        class="group relative hidden w-auto justify-items-center rounded-lg bg-zinc-800 p-1 shadow-[inset_0px_4px_6px_rgba(0,0,0,0.1)] xl:grid"
+      >
+        <button
+          :disabled="loading"
+          @click="handleDownload"
+          class="flex w-full items-center justify-center gap-2 rounded-md bg-custom-dark-600 px-4 py-2 font-inter text-base text-emerald-400 disabled:bg-gray-200 disabled:text-gray-500"
+          :class="{ 'cursor-not-allowed': loading }"
+        >
+          <svg
+            v-if="loading"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-6 animate-spin"
+          >
+            <path d="M12 2v4" />
+            <path d="m16.2 7.8 2.9-2.9" />
+            <path d="M18 12h4" />
+            <path d="m16.2 16.2 2.9 2.9" />
+            <path d="M12 18v4" />
+            <path d="m4.9 19.1 2.9-2.9" />
+            <path d="M2 12h4" />
+            <path d="m4.9 4.9 2.9 2.9" />
+          </svg>
+
+          <span v-else><ArrowDownToLine class="h-5 w-5" /></span>
+        </button>
+      </div>
 
       <!-- <div class="flex">
         <button
@@ -462,14 +590,31 @@
 </template>
 
 <script setup lang="ts">
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
-import { EllipsisVertical } from "lucide-vue-next";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  TransitionChild,
+  TransitionRoot,
+} from "@headlessui/vue";
+import { ArrowDownToLine, EllipsisVertical, X } from "lucide-vue-next";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
 import "prismjs/themes/prism-tomorrow.css";
-import { nextTick } from "vue";
+import { nextTick, ref } from "vue";
 import useImageControls from "../composables/useImageControls";
+import useSupabase from "../composables/useSupabase";
+
+import useCanvasImageEditor from "../composables/useCanvasImageEditor";
+
+const { incrementDownloadCount, isExternalImageSource } = useSupabase();
+
+const { myCanvas, loading } = useCanvasImageEditor();
 
 const { imageUrl, aspectRatio, showPreview, handleViewCode } =
   useImageControls();
@@ -532,6 +677,21 @@ const toggleViewMode = async (mode: string) => {
     Prism.highlightAll();
   }
 };
+
+const isOpen = ref(false);
+
+function closeModal() {
+  isOpen.value = false;
+}
+
+
+function handleDownload() {
+  if (imageUrl.value && imageUrl.value.startsWith("http")) {
+    isOpen.value = true;
+  } else {
+    incrementDownloadCount();
+  }
+}
 </script>
 
 <style scoped>

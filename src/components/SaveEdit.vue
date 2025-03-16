@@ -1,6 +1,6 @@
 <template>
   <div class="w-full max-w-md space-y-6 p-4 font-inter">
-    <SidebarTitle>ADD EDIT</SidebarTitle>
+    <SidebarTitle>SAVE PRESETS</SidebarTitle>
     <div class="relative">
       <div class="relative">
         <input
