@@ -11,33 +11,24 @@ export default {
         'inter': ['Inter', 'sans-serif'],
         'madimi': ['Madimi One', 'sans-serif'],
         'quicksand': ['Quicksand', 'sans-serif'],
-        
+
       },
       colors: {
         "custom-dark-400": "#090716",
         "custom-dark-600": "#131412",
         "custom-dark-800": "#14161A",
         "custom-white-100": "#FCFCFC",
-        
+
       },
       keyframes: {
         ripple: {
           '0%': { transform: 'translate(-50%, -50%) scale(0)', opacity: '1' },
           '100%': { transform: 'translate(-50%, -50%) scale(1)', opacity: '0' },
         },
-        ["shine-infinite"]: {
-          "0%": {
-            transform: "skew(-12deg) translateX(-100%)",
-          },
-          "100%": {
-            transform: "skew(-12deg) translateX(100%)",
-          },
-        },
       },
       animation: {
         'spin-slow': 'spin 8s linear infinite',
         'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        ["shine-infinite"]: "shine-infinite 2s ease-in-out infinite",
         ripple: 'ripple 2s infinite ease-out',
       }
     },

@@ -119,13 +119,22 @@
             </svg>
             <span class="sr-only">Toggle dark mode</span>
           </button>
+          <RouterLink :to="{name: 'editor'}"
+            v-if="$route.path === '/'"
+            class="flex items-center gap-1 overflow-hidden bg-neutral-950/50 rounded-md px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
+          >
+            <span class="hidden sm:block">Get Started</span>
+            <span class="sr-only">Get Started</span>
+            <div
+            class="animate-shine absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]"
+          >
+            <div class="relative h-full w-8 bg-white/30"></div>
+          </div>
+          </RouterLink>
           <button
-            v-if="!session"
+            v-if="!session && $route.path !== '/'"
             @click="signInWithGoogle"
-            class="flex items-center gap-1 rounded-md px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
-            :class="
-              $route.path === '/' ? 'bg-neutral-950/50' : 'bg-neutral-950'
-            "
+            class="flex items-center bg-neutral-950 gap-1 rounded-md px-2 py-1.5 text-base text-white backdrop-blur sm:px-4 sm:py-2"
           >
             <svg
               class="size-5 sm:size-5"
@@ -269,4 +278,25 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+@keyframes shine-infinite {
+  0% {
+    transform: skew(-12deg) translateX(-100%);
+  }
+  40% {
+    transform: skew(-12deg) translateX(100%); 
+  }
+  100% {
+    transform: skew(-12deg) translateX(100%);
+  }
+}
+
+.animate-shine {
+  animation: shine-infinite 5s ease-in-out infinite;
+}
+
+
+
+
+</style>
