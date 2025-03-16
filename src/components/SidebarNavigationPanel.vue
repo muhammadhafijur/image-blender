@@ -183,20 +183,12 @@
         target="_blank"
         rel="noopener noreferrer"
         class="flex h-12 w-12 items-center justify-center text-gray-400 transition-all duration-300 hover:bg-gray-800 hover:text-gray-100 md:rounded-lg"
-        :class="{
-          'bg-emerald-500 text-white': !showPreview,
-          'text-gray-400': showPreview,
-        }"
       >
         <Github class="h-5 w-5" />
       </a>
       <button
         @click="openModal"
         class="flex h-12 w-12 items-center justify-center text-gray-400 transition-all duration-300 hover:bg-gray-800 hover:text-gray-100 md:rounded-lg"
-        :class="{
-          'bg-emerald-500 text-white': !showPreview,
-          'text-gray-400': showPreview,
-        }"
       >
         <CircleHelp class="h-5 w-5" />
       </button>
