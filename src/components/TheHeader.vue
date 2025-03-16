@@ -163,7 +163,7 @@
             <span class="sr-only">Sign up</span>
           </button>
 
-          <div v-if="session" class="relative h-10 w-10">
+          <div v-if="session && $route.path !== '/'" class="relative h-10 w-10">
             <button
               @click="showProfileDropdown = !showProfileDropdown"
               class="h-10 w-10 overflow-hidden rounded-full"
