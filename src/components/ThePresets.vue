@@ -70,7 +70,7 @@
           to gain access to our unique presets
         </p>
       </div>
-      <div class="grid w-full grid-cols-2 gap-4">
+      <div class="grid w-full grid-cols-2 gap-4 mt-4">
         <button
           :disabled="!session"
           v-for="preset in uniquePresets"
