@@ -32,7 +32,8 @@
           <img
             src="../images/before.jpg"
             alt="Original image"
-            class="absolute inset-0 h-full w-full object-cover"
+            class="absolute inset-0 h-full w-full object-cover lg:w-[1246px]"
+            style="max-width: initial"
           />
 
           <div
@@ -42,8 +43,11 @@
             <img
               src="../images/after.jpg"
               alt="Transformed image"
-              class="absolute inset-0 h-full w-full object-cover"
-              style="filter: saturate(1.5) contrast(1.2) brightness(1.1)"
+              class="absolute inset-0 h-full w-full object-cover lg:w-[1246px]"
+              style="
+                filter: saturate(1.5) contrast(1.2) brightness(1.1);
+                max-width: initial;
+              "
             />
           </div>
 
@@ -138,4 +142,8 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.custom-max-width-initial {
+  max-width: initial;
+}
+</style>
