@@ -9,7 +9,7 @@ const viewCode: Ref<string | null> = ref(null);
 const aspectRatio: Ref<string> = ref("square");
 const bgLayerOpacity: Ref<number> = ref(40);
 const bgLayerColor: Ref<string> = ref("#00C16A");
-const mixBlendValue: Ref<string> = ref("normal");
+const mixBlendValue: Ref<string> = ref("multiply");
 const sliderBackground: Ref<string> = ref("");
 
 const selectedGradientDirection: Ref<string> = ref("");
